@@ -1,0 +1,1 @@
+include ':app', ':databindingtestdemo', ':PullToRecycleViewAddHeaderFooter', ':msdemo', ':revisedemo', ':greendaodemo'
