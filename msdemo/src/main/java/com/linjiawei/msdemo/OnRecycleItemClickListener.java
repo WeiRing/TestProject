@@ -40,11 +40,13 @@ public abstract class OnRecycleItemClickListener implements RecyclerView.OnItemT
     public abstract void OnItemClick(RecyclerView.ViewHolder holder);
 
     /**
-     * 长按事件
+     * 长按事件 不声明为抽象方法，子类实现需要使用时重写改方法即可
      *
      * @param holder
      */
-   /* public abstract void onLongItemClick(RecyclerView.ViewHolder holder);*/
+    public void onLongItemClick(RecyclerView.ViewHolder holder){
+
+    };
 
     /**
      * 自定义手势探测器
@@ -63,14 +65,14 @@ public abstract class OnRecycleItemClickListener implements RecyclerView.OnItemT
         }
 
         //长按监听
-    /*    @Override public void onLongPress(MotionEvent e) {
+        @Override public void onLongPress(MotionEvent e) {
             View itemView = recyclerView.findChildViewUnder(e.getX(), e.getY());
             if (itemView != null) {
                 RecyclerView.ViewHolder holder = recyclerView.getChildViewHolder(itemView);
                 //接下来就是实现长按事件的动作
                 onLongItemClick(holder);
             }
-        }*/
+        }
     }
 }
 

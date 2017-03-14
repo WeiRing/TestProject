@@ -7,7 +7,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 /**
- * Created by : 林嘉伟  Date：2016/5/12
+ * Created by : 林嘉伟  Date：2017/3/14
  * RecycleView事件监听器
  */
 public abstract class OnRecycleItemClickListener implements RecyclerView.OnItemTouchListener {
@@ -19,16 +19,19 @@ public abstract class OnRecycleItemClickListener implements RecyclerView.OnItemT
         mGestureDetector = new GestureDetectorCompat(recyclerView.getContext(), new ItemTouchHelperGestureListener());
     }
 
-    @Override public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+    @Override
+    public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
         mGestureDetector.onTouchEvent(e);
         return false;
     }
 
-    @Override public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+    @Override
+    public void onTouchEvent(RecyclerView rv, MotionEvent e) {
         mGestureDetector.onTouchEvent(e);
     }
 
-    @Override public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+    @Override
+    public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
 
     }
 
@@ -44,7 +47,9 @@ public abstract class OnRecycleItemClickListener implements RecyclerView.OnItemT
      *
      * @param holder
      */
-   /* public abstract void onLongItemClick(RecyclerView.ViewHolder holder);*/
+    public void onLongItemClick(RecyclerView.ViewHolder holder) { }
+
+    ;
 
     /**
      * 自定义手势探测器
@@ -52,25 +57,27 @@ public abstract class OnRecycleItemClickListener implements RecyclerView.OnItemT
      */
     private class ItemTouchHelperGestureListener extends GestureDetector.SimpleOnGestureListener {
         //短按监听
-        @Override public boolean onSingleTapUp(MotionEvent e) {
+        @Override
+        public boolean onSingleTapUp(MotionEvent e) {
             View itemView = recyclerView.findChildViewUnder(e.getX(), e.getY());
             if (itemView != null) {
                 RecyclerView.ViewHolder holder = recyclerView.getChildViewHolder(itemView);
-                //接下来就是实现点击事件的动作
+                //实现点击事件的动作
                 OnItemClick(holder);
             }
             return true;
         }
 
         //长按监听
-    /*    @Override public void onLongPress(MotionEvent e) {
+        @Override
+        public void onLongPress(MotionEvent e) {
             View itemView = recyclerView.findChildViewUnder(e.getX(), e.getY());
             if (itemView != null) {
                 RecyclerView.ViewHolder holder = recyclerView.getChildViewHolder(itemView);
-                //接下来就是实现长按事件的动作
+                //实现长按事件的动作
                 onLongItemClick(holder);
             }
-        }*/
+        }
     }
 }
 

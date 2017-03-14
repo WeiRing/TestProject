@@ -19,15 +19,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button callPhoneBtn, readSDCardBtn;
     ActivityMainBinding mainBinding;
     Student student;
-
-    int count=1;
+    int count = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    //    setContentView(R.layout.activity_main);
+        //    setContentView(R.layout.activity_main);
         mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        student = new Student("小明","男");
+        student = new Student("小明", "男");
         mainBinding.setStuInfo(student);
 
         callPhoneBtn = (Button) findViewById(R.id.callPhoneBtn);
@@ -36,11 +35,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         readSDCardBtn.setOnClickListener(this);
     }
 
+
     @Override
     public void onClick(View v) {
         if (v.getId() == callPhoneBtn.getId()) {
             callPhoneCheck();
-            student.setName("小明"+count);
+            student.setName("小明" + count);
             count++;
             mainBinding.setStuInfo(student);
         } else if (v.getId() == readSDCardBtn.getId()) {
@@ -50,8 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void callPhoneCheck() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-            //没有权限
-            //申请权限
+            //没有权限，得申请权限
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, 0);
         } else {
             //已经有权限

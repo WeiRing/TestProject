@@ -1,8 +1,7 @@
 package com.linjiawei.revisedemo;
 
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -36,6 +35,17 @@ public class MainActivity extends AppCompatActivity implements PullCallback {
         myAdapter = new MyRecycleViewAdapter(this, dates);
         myRecycleView.setLayoutManager(new GridLayoutManager(this,2));
         myRecycleView.setAdapter(myAdapter);
+        myRecycleView.addOnItemTouchListener(new OnRecycleItemClickListener(myRecycleView) {
+            @Override
+            public void OnItemClick(RecyclerView.ViewHolder holder) {
+
+            }
+            //需要长按事件时，重新父类销父类的onLongItemClick方法
+            @Override
+            public void onLongItemClick(RecyclerView.ViewHolder holder) {
+                super.onLongItemClick(holder);//长按事件
+            }
+        });
 
     }
 

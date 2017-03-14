@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+        xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
             name="stuInfo"
-            type="com.linjiawei.databindingtestdemo.Student" />
+            type="com.linjiawei.databindingtestdemo.Student"/>
     </data>
 
     <RelativeLayout
@@ -22,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="100dp"
-            android:text="打电话" />
+            android:text="打电话"/>
 
         <Button
             android:id="@+id/readCard"
@@ -31,7 +30,7 @@
             android:layout_below="@id/callPhoneBtn"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:text="读取SD卡" />
+            android:text="读取SD卡"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,8 +46,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{stuInfo.sex}"
-                />
+                android:text="@{stuInfo.sex}"/>
         </LinearLayout>
 
 

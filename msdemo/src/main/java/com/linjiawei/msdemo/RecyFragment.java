@@ -2,7 +2,6 @@ package com.linjiawei.msdemo;
 
 
 import android.app.Fragment;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,7 +14,6 @@ import android.widget.Toast;
 
 import org.xutils.DbManager;
 import org.xutils.ex.DbException;
-import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,6 +79,12 @@ public class RecyFragment extends Fragment implements View.OnClickListener {
                 } catch (DbException e) {
                     e.printStackTrace();
                 }*/
+            }
+
+            @Override
+            public void onLongItemClick(RecyclerView.ViewHolder holder) {
+                Toast.makeText(getActivity(), holder.getAdapterPosition() + "长按事件....", Toast.LENGTH_SHORT).show();
+                super.onLongItemClick(holder);
             }
         });
 

@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="autolayout-1.4.5">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/msdemo/build/intermediates/exploded-aar/com.zhy/autolayout/1.4.5/jars/classes.jar!/" />
-      <root url="file://$PROJECT_DIR$/msdemo/build/intermediates/exploded-aar/com.zhy/autolayout/1.4.5/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/81ece1007c8a148a583687b4966fcf8dfca75564/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/81ece1007c8a148a583687b4966fcf8dfca75564/output/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

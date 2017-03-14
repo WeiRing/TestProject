@@ -1,14 +1,11 @@
 package com.leejz.recyclerviewhf;
 
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.Toast;
 
 import com.srx.widget.PullCallback;
@@ -167,5 +164,5 @@ public class MainActivity extends AppCompatActivity implements PullCallback {
     public boolean hasLoadedAllItems() {
         return isHasLoadedAll;
     }
-
+//ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwcDpIMgOmM4v/xSR3UTShO+79QfL89RnfvPmWhRHih38Y76xqkM09t0dhmav488w+uC5+hWjC1PIrHjktzTVg86Hehyl+FUSYHAzdu4nzwxCq2IWbDny5WzbfGNV2t6TnzhRMn/Z5b2toVSki6Xg8lHCiOmydB3EsPDKIxuJf1bbVA1sNB7qu1jq/LpTUYCxY2nq1moIaQ2NOhhDa3Ov4PFj1w5cp7meOZ+VV5LCDYbBkFQ6hMAD/FbSWuYpimzz/0KIztbzBfr0kcsqCkKkKToxnN0ortRzPPfHYdpNBLUd/4nNWmA0090rk/CmarO4OWCJQOcMQeJ8j/C9ElOtr Dell@DELL-PC
 }
