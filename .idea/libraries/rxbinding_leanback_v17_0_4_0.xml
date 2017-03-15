@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="rxbinding-leanback-v17-0.4.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.android/build-cache/3fd7be88f9a2dcd7db6b34790a871028bc66651c/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/3fd7be88f9a2dcd7db6b34790a871028bc66651c/output/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jakewharton.rxbinding/rxbinding-leanback-v17/0.4.0/2283c8677be3c58872951d3fd34562503324949c/rxbinding-leanback-v17-0.4.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

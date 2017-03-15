@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/greendaodemo" />
             <option value="$PROJECT_DIR$/msdemo" />
             <option value="$PROJECT_DIR$/revisedemo" />
+            <option value="$PROJECT_DIR$/rxandroiddemo" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -47,7 +47,8 @@ public abstract class OnRecycleItemClickListener implements RecyclerView.OnItemT
      *
      * @param holder
      */
-    public void onLongItemClick(RecyclerView.ViewHolder holder) { }
+    public void onLongItemClick(RecyclerView.ViewHolder holder) {
+    }
 
     ;
 
