@@ -32,10 +32,10 @@ public class MainActivity extends AppCompatActivity implements ActivityLifecycle
         super.onCreate(savedInstanceState);
         lifecycleSubject.onNext(ActivityEvent.CREATE);
         setContentView(R.layout.activity_main);
-        initView();
+        initViewEvent();
     }
 
-    private void initView() {
+    private void initViewEvent() {
         //longEventBtn
         RxView.longClicks(findViewById(R.id.longEventBtn)).subscribe(new Action1<Void>() {
             @Override
@@ -113,7 +113,6 @@ public class MainActivity extends AppCompatActivity implements ActivityLifecycle
                             mCheckBox.setText("状态：未选中");
                     }
                 });
-
 
     }
 
