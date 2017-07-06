@@ -15,7 +15,7 @@ import com.linjiawei.mytestdemo.R;
 
 /** 自动实现两个父类的抽象方法、删掉子类的 onCreate() 方法，并通过 getContentView() 方法返回布局 activity_main 的 id **/
 
-
+//
 public abstract class ToolbarBaseActivity extends AppCompatActivity {
     FrameLayout frameContentLayout;
     Toolbar toolbar;
