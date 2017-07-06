@@ -17,11 +17,5 @@ public class RxAndroidActivity extends ToolbarBaseActivity {
     protected void initData(Bundle savedInstanceState) {
         String titleName = getIntent().getExtras().getString(MainActivity.ACTIVITY_TITLE_NAME);
         setTitle(titleName);
-//        setToolbarLeftBthListener(R.mipmap.ic_reply_white, new OnClickToolbarBtnListener() {
-//            @Override
-//            public void click() {
-//                ToastUtils.showShort("测试");
-//            }
-//        });
     }
 }
