@@ -101,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements PullCallback {
                 }
                 if (page > 10) {
                     isHasLoadedAll = true;
+                    myPullToRecycleView.setComplete();
                     return;
                 }
                 //切记：采用此控件在刷新的时候，一定要回调成功后再将旧的数据清除，不能在请求新数据前（在onRefresh方法中）先清除数据；

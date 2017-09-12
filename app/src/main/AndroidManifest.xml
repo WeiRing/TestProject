@@ -22,6 +22,13 @@
         </activity>
         <activity android:name=".base.ToolbarBaseActivity">
         </activity>
+        <activity android:name=".guide.NewbieGuideActivity">
+        </activity>
+        <activity
+            android:name=".nicedialog.NiceDialogActivity"
+            android:label="@string/title_activity_nice_dialog"
+            android:theme="@style/AppTheme">
+        </activity>
     </application>
 
 </manifest>

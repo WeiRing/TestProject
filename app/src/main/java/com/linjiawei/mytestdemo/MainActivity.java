@@ -14,6 +14,8 @@ import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.linjiawei.mytestdemo.base.ToolbarBaseActivity;
 import com.linjiawei.mytestdemo.greendao.GreenDaoActivity;
+import com.linjiawei.mytestdemo.guide.NewbieGuideActivity;
+import com.linjiawei.mytestdemo.nicedialog.NiceDialogActivity;
 import com.linjiawei.mytestdemo.rxandroid.RxAndroidActivity;
 import com.srx.widget.PullCallback;
 import com.srx.widget.PullToLoadView;
@@ -117,6 +119,8 @@ public class MainActivity extends ToolbarBaseActivity implements PullCallback {
         for (int i = 0; i < 20; i++) {
             activityList.add(new ActivityParameter(0, "RxAndroid", RxAndroidActivity.class));
             activityList.add(new ActivityParameter(1, "GreenDao3.2", GreenDaoActivity.class));
+            activityList.add(new ActivityParameter(2, "页面首次显示使用引导", NewbieGuideActivity.class));
+            activityList.add(new ActivityParameter(4, "NiceDialog", NiceDialogActivity.class));
         }
     }
 

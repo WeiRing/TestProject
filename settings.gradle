@@ -1,1 +1,1 @@
-include ':app', ':databindingtestdemo', ':PullToRecycleViewAddHeaderFooter', ':msdemo', ':revisedemo', ':greendaodemo', ':rxandroiddemo'
+include ':app', ':databindingtestdemo', ':PullToRecycleViewAddHeaderFooter', ':msdemo', ':revisedemo', ':greendaodemo', ':rxandroiddemo', ':colortoastdemo'
