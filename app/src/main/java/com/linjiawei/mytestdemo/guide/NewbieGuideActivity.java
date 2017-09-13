@@ -1,7 +1,6 @@
 package com.linjiawei.mytestdemo.guide;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
@@ -10,7 +9,9 @@ import com.app.hubert.library.HighLight;
 import com.app.hubert.library.NewbieGuide;
 import com.app.hubert.library.OnGuideChangedListener;
 import com.blankj.utilcode.util.ToastUtils;
+import com.linjiawei.mytestdemo.MainActivity;
 import com.linjiawei.mytestdemo.R;
+import com.linjiawei.mytestdemo.base.ToolbarBaseActivity;
 
 
 /**
@@ -19,16 +20,19 @@ import com.linjiawei.mytestdemo.R;
  * 使用说明地址：https://github.com/huburt-Hu/NewbieGuide
  */
 
-public class NewbieGuideActivity extends AppCompatActivity {
-    private TextView hintText, nextBtn;
+public class NewbieGuideActivity extends ToolbarBaseActivity {
+    private TextView  nextBtn;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_newbie_guide);
-        hintText = (TextView) findViewById(R.id.hintView);
-        nextBtn = (TextView) findViewById(R.id.nextPageBtn);
+    protected int getContentView() {
+        return R.layout.activity_newbie_guide;
+    }
 
+    @Override
+    protected void initData(Bundle savedInstanceState) {
+        String titleName = getIntent().getExtras().getString(MainActivity.ACTIVITY_TITLE_NAME);
+        setTitle(titleName);
+        nextBtn = (TextView) findViewById(R.id.nextPageBtn);
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,7 +40,6 @@ public class NewbieGuideActivity extends AppCompatActivity {
             }
         });
     }
-
 
     public void showNewbieGuide(View view) {
         NewbieGuide.with(this)//传入activity

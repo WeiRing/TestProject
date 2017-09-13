@@ -3,24 +3,37 @@ package com.linjiawei.mytestdemo.nicedialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.blankj.utilcode.util.ToastUtils;
+import com.linjiawei.mytestdemo.MainActivity;
 import com.linjiawei.mytestdemo.R;
+import com.linjiawei.mytestdemo.base.ToolbarBaseActivity;
 import com.othershe.nicedialog.BaseNiceDialog;
 import com.othershe.nicedialog.NiceDialog;
 import com.othershe.nicedialog.ViewConvertListener;
 import com.othershe.nicedialog.ViewHolder;
 
-public class NiceDialogActivity extends AppCompatActivity {
+/**
+ *
+ * 郭霖大神 NiceDialog弹框框架，是基于DialogFragment实现.
+ * 接入及使用流程：https://github.com/Othershe/NiceDialog
+ */
+
+public class NiceDialogActivity extends ToolbarBaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nice_dialog);
+    protected int getContentView() {
+        return R.layout.activity_nice_dialog;
+    }
+
+    @Override
+    protected void initData(Bundle savedInstanceState) {
+        String titleName = getIntent().getExtras().getString(MainActivity.ACTIVITY_TITLE_NAME);
+        setTitle(titleName);
     }
 
     public void showDialog0(View view) {
@@ -65,8 +78,15 @@ public class NiceDialogActivity extends AppCompatActivity {
                         editText.post(new Runnable() {
                             @Override
                             public void run() {
+                                //自己获取输入框的焦点（弹出键盘）
                                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                                 imm.showSoftInput(editText, 0);
+                            }
+                        });
+                        holder.setOnClickListener(R.id.submitCommentBtn, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                ToastUtils.showShort(editText.getText().toString());
                             }
                         });
                     }
@@ -102,6 +122,7 @@ public class NiceDialogActivity extends AppCompatActivity {
                 .setWidth(100)
                 .setHeight(100)
                 .setDimAmount(0)
+                //.setOutCancel(false)
                 .show(getSupportFragmentManager());
     }
 
@@ -115,7 +136,7 @@ public class NiceDialogActivity extends AppCompatActivity {
     public void showDialog6(View view) {
         ConfirmDialog.newInstance("2")
                 .setMargin(60)
-                .setOutCancel(false)
+                .setOutCancel(true)
                 .show(getSupportFragmentManager());
     }
 

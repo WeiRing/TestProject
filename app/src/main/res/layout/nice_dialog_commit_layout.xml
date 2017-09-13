@@ -39,6 +39,7 @@
             android:background="@mipmap/nice_dialog_icon_emoji_smile" />
 
         <TextView
+            android:id="@+id/submitCommentBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
