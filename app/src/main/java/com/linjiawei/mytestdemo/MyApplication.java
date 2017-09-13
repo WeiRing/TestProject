@@ -24,7 +24,7 @@ public class MyApplication extends Application {
 
     //初始化标记2 初始化万能工具类
     private void initUtilCode(){
-        Utils.init(mContext);
+        Utils.init(this);
     }
 
 }

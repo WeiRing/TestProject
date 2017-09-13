@@ -106,8 +106,8 @@ public class MainActivity extends ToolbarBaseActivity implements PullCallback {
             @Override
             public void onLongItemClick(RecyclerView.ViewHolder holder) {
                 super.onLongItemClick(holder);
-                ToastUtils.setBackgroundColor(Color.RED);
-                ToastUtils.setMessageColor(Color.WHITE);
+                ToastUtils.setBgColor(Color.RED);
+                ToastUtils.setMsgColor(Color.WHITE);
                 ToastUtils.showShort("测试" + holder.getPosition());
             }
         });
@@ -116,7 +116,7 @@ public class MainActivity extends ToolbarBaseActivity implements PullCallback {
 
 
     private void addItemData() {
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 10; i++) {
             activityList.add(new ActivityParameter(0, "RxAndroid", RxAndroidActivity.class));
             activityList.add(new ActivityParameter(1, "GreenDao3.2", GreenDaoActivity.class));
             activityList.add(new ActivityParameter(2, "页面首次显示使用引导", NewbieGuideActivity.class));
@@ -191,5 +191,22 @@ public class MainActivity extends ToolbarBaseActivity implements PullCallback {
     public boolean hasLoadedAllItems() {
         //表示所有页面已经加载完毕
         return isHasLoadedAll;
+    }
+
+
+    //200ms内点击两次才调用返回
+    long mExitTime = 0;
+    @Override
+    public void onBackPressed() {
+        //1.点击的时间差如果大于2000，则提示用户点击两次退出
+        if(System.currentTimeMillis() - mExitTime > 2000) {
+            //2.保存当前时间
+            mExitTime  = System.currentTimeMillis();
+            //3.提示
+            ToastUtils.showShort("再点击一次后退出...");
+        } else {
+            //4.点击的时间差小于2000，调用父类onBackPressed方法执行退出。
+            super.onBackPressed();
+        }
     }
 }
