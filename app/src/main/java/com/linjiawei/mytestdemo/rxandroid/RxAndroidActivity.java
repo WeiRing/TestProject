@@ -5,7 +5,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.blankj.utilcode.util.ToastUtils;
-import com.linjiawei.mytestdemo.MainActivity;
 import com.linjiawei.mytestdemo.OnRecycleItemClickListener;
 import com.linjiawei.mytestdemo.R;
 import com.linjiawei.mytestdemo.base.ToolbarBaseActivity;
@@ -38,8 +37,7 @@ public class RxAndroidActivity extends ToolbarBaseActivity {
     @Override
     protected void initData(Bundle savedInstanceState) {
         ButterKnife.bind(this);
-        String titleName = getIntent().getExtras().getString(MainActivity.ACTIVITY_TITLE_NAME);
-        setTitle(titleName);
+        setTitle(getIntent().getExtras().getString(ACTIVITY_TITLE_NAME));
         addItem();
         mRxAndroidRecycleView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         mRxAndroidRecycleView.setAdapter(new CommonAdapter<String>(this, R.layout.rv_item, dataList) {
@@ -55,15 +53,15 @@ public class RxAndroidActivity extends ToolbarBaseActivity {
             @Override
             public void OnItemClick(RecyclerView.ViewHolder holder) {
                 ToastUtils.showShort(dataList.get(holder.getPosition()));
+                openNewActivity(dataList.get(holder.getAdapterPosition()), RxAndroidActivity.this, RxDomeActivity.class);
             }
         });
-
     }
 
     private void addItem() {
         dataList.add("网络请求：RxJava + OkHttp");
         dataList.add("网络请求：RxJava + OkHttp + GSON");
-        dataList.add("View防止连续点击");
+        dataList.add("防止View被连续点击");
         dataList.add("CheckBox 状态的实时更新");
         dataList.add("搜索关键字提醒");
         dataList.add("Buffer操作符的使用");

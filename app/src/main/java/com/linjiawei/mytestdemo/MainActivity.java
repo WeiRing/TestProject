@@ -3,14 +3,12 @@ package com.linjiawei.mytestdemo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.linjiawei.mytestdemo.base.ToolbarBaseActivity;
 import com.linjiawei.mytestdemo.greendao.GreenDaoActivity;
@@ -95,7 +93,7 @@ public class MainActivity extends ToolbarBaseActivity implements PullCallback {
                     ToastUtils.showShort( textView.getText().toString());
                 } else {
                     if (holder.getItemViewType() == HomeRecycleViewAdapter.ITEM_TYPE_CONTENT) {
-                        openNewActivity(activityList.get(holder.getPosition() - HomeRecycleViewAdapter.mHeaderCount).getName(), activityList.get(holder.getPosition() - HomeRecycleViewAdapter.mHeaderCount).getActivity());
+                        openNewActivity(activityList.get(holder.getPosition() - HomeRecycleViewAdapter.mHeaderCount).getName(),MainActivity.this, activityList.get(holder.getPosition() - HomeRecycleViewAdapter.mHeaderCount).getActivity());
                     } else if (holder.getItemViewType() == HomeRecycleViewAdapter.ITEM_TYPE_FOOTER) {
                         TextView textView = (TextView) ((CardView) holder.itemView).findViewById(R.id.footerText);
                         ToastUtils.showShort(textView.getText().toString());
@@ -162,11 +160,13 @@ public class MainActivity extends ToolbarBaseActivity implements PullCallback {
      * @param activityTitleName
      * @param desClass
      */
-    private void openNewActivity(String activityTitleName , Class<? extends AppCompatActivity> desClass){
-        Bundle bundle = new Bundle();
-        bundle.putString(ACTIVITY_TITLE_NAME, activityTitleName);
-        ActivityUtils.startActivity(bundle, MainActivity.this, desClass);
-    }
+//    private void openNewActivity(String activityTitleName , Class<? extends AppCompatActivity> desClass){
+//        Bundle bundle = new Bundle();
+//        bundle.putString(ACTIVITY_TITLE_NAME, activityTitleName);
+//        ActivityUtils.startActivity(bundle, MainActivity.this, desClass);
+
+//        openNewActivity(activityTitleName,MainActivity.this,desClass);
+//    }
 
 
     /***********发下四个方法是PullCallback接口所实现的方法*******/

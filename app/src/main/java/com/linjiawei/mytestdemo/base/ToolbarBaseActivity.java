@@ -10,12 +10,12 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.ActivityUtils;
 import com.linjiawei.mytestdemo.R;
 
 
 /** 自动实现两个父类的抽象方法、删掉子类的 onCreate() 方法，并通过 getContentView() 方法返回布局 activity_main 的 id **/
 
-//
 public abstract class ToolbarBaseActivity extends AppCompatActivity {
     FrameLayout frameContentLayout;
     Toolbar toolbar;
@@ -36,6 +36,10 @@ public abstract class ToolbarBaseActivity extends AppCompatActivity {
         initData(savedInstanceState);
     }
 
+    /**
+     * 默认显示标题的同时显示返回键
+     * @param titleName
+     */
     public void setTitle(String titleName){
         if (!TextUtils.isEmpty(titleName)) {
             titleView.setText(titleName);
@@ -50,6 +54,7 @@ public abstract class ToolbarBaseActivity extends AppCompatActivity {
             });
         }
     }
+
 
     protected abstract int getContentView();
 
@@ -126,5 +131,21 @@ public abstract class ToolbarBaseActivity extends AppCompatActivity {
         return true;//告诉系统自己处理点击事件
         //return super.onOptionsItemSelected(item);
     }
+
+
+
+    public static String ACTIVITY_TITLE_NAME = "ActivityTitleName";
+    /**
+     * 启动activity，顺带标题过来
+     * @param activityTitleName
+     * @param startClass
+     * @param desClass
+     */
+    public void openNewActivity(String activityTitleName, AppCompatActivity startClass, Class<? extends AppCompatActivity> desClass){
+        Bundle bundle = new Bundle();
+        bundle.putString(ACTIVITY_TITLE_NAME, activityTitleName);
+        ActivityUtils.startActivity(bundle, startClass, desClass);
+    }
+
 
 }

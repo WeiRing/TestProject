@@ -9,7 +9,6 @@ import com.app.hubert.library.HighLight;
 import com.app.hubert.library.NewbieGuide;
 import com.app.hubert.library.OnGuideChangedListener;
 import com.blankj.utilcode.util.ToastUtils;
-import com.linjiawei.mytestdemo.MainActivity;
 import com.linjiawei.mytestdemo.R;
 import com.linjiawei.mytestdemo.base.ToolbarBaseActivity;
 
@@ -30,8 +29,7 @@ public class NewbieGuideActivity extends ToolbarBaseActivity {
 
     @Override
     protected void initData(Bundle savedInstanceState) {
-        String titleName = getIntent().getExtras().getString(MainActivity.ACTIVITY_TITLE_NAME);
-        setTitle(titleName);
+        setTitle(getIntent().getExtras().getString(ACTIVITY_TITLE_NAME));
         nextBtn = (TextView) findViewById(R.id.nextPageBtn);
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override

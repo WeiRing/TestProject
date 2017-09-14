@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.blankj.utilcode.util.ToastUtils;
-import com.linjiawei.mytestdemo.MainActivity;
 import com.linjiawei.mytestdemo.R;
 import com.linjiawei.mytestdemo.base.ToolbarBaseActivity;
 import com.othershe.nicedialog.BaseNiceDialog;
@@ -32,8 +31,7 @@ public class NiceDialogActivity extends ToolbarBaseActivity {
 
     @Override
     protected void initData(Bundle savedInstanceState) {
-        String titleName = getIntent().getExtras().getString(MainActivity.ACTIVITY_TITLE_NAME);
-        setTitle(titleName);
+        setTitle(getIntent().getExtras().getString(ACTIVITY_TITLE_NAME));
     }
 
     public void showDialog0(View view) {

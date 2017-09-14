@@ -3,7 +3,6 @@ package com.linjiawei.mytestdemo.greendao;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.linjiawei.mytestdemo.MainActivity;
 import com.linjiawei.mytestdemo.R;
 import com.linjiawei.mytestdemo.base.ToolbarBaseActivity;
 import com.linjiawei.mytestdemo.greendao.dao.PersonDao;
@@ -22,8 +21,7 @@ public class GreenDaoActivity extends ToolbarBaseActivity {
 
     @Override
     protected void initData(Bundle savedInstanceState) {
-        String titleName = getIntent().getExtras().getString(MainActivity.ACTIVITY_TITLE_NAME);
-        setTitle(titleName);
+        setTitle(getIntent().getExtras().getString(ACTIVITY_TITLE_NAME));
 
         //数据库的详细使用，参照 http://blog.csdn.net/scorpio_gao/article/details/53048699
 
