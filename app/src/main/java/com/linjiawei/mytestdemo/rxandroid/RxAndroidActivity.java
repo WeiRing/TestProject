@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.blankj.utilcode.util.ToastUtils;
 import com.linjiawei.mytestdemo.OnRecycleItemClickListener;
 import com.linjiawei.mytestdemo.R;
 import com.linjiawei.mytestdemo.base.ToolbarBaseActivity;
@@ -52,8 +51,11 @@ public class RxAndroidActivity extends ToolbarBaseActivity {
         mRxAndroidRecycleView.addOnItemTouchListener(new OnRecycleItemClickListener(mRxAndroidRecycleView) {
             @Override
             public void OnItemClick(RecyclerView.ViewHolder holder) {
-                ToastUtils.showShort(dataList.get(holder.getPosition()));
-                openNewActivity(dataList.get(holder.getAdapterPosition()), RxAndroidActivity.this, RxDomeActivity.class);
+//                openNewActivity(dataList.get(holder.getAdapterPosition()), RxAndroidActivity.this, RxDomeActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString(ACTIVITY_TITLE_NAME,dataList.get(holder.getAdapterPosition()));
+                bundle.putInt("showRxType",holder.getAdapterPosition());
+                openNewActivity(bundle, RxAndroidActivity.this, RxDomeActivity.class);
             }
         });
     }

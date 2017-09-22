@@ -147,5 +147,13 @@ public abstract class ToolbarBaseActivity extends AppCompatActivity {
         ActivityUtils.startActivity(bundle, startClass, desClass);
     }
 
+    /**
+     * 启动activity，顺带标题过来
+     * @param startClass
+     * @param desClass
+     */
+    public void openNewActivity(Bundle bundle, AppCompatActivity startClass, Class<? extends AppCompatActivity> desClass){
+        ActivityUtils.startActivity(bundle, startClass, desClass);
+    }
 
 }

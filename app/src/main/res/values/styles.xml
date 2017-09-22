@@ -33,5 +33,17 @@
     </style>
 
 
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:padding="20dp"
+    <style name="hintTextStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">20dp</item>
 
+
+    </style>
+    
 </resources>

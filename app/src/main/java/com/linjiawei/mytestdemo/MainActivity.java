@@ -15,6 +15,7 @@ import com.linjiawei.mytestdemo.greendao.GreenDaoActivity;
 import com.linjiawei.mytestdemo.guide.NewbieGuideActivity;
 import com.linjiawei.mytestdemo.nicedialog.NiceDialogActivity;
 import com.linjiawei.mytestdemo.rxandroid.RxAndroidActivity;
+import com.linjiawei.mytestdemo.rxpermissions.RxPermissionsActivity;
 import com.srx.widget.PullCallback;
 import com.srx.widget.PullToLoadView;
 
@@ -22,7 +23,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends ToolbarBaseActivity implements PullCallback {
-    public static String ACTIVITY_TITLE_NAME="activityTitleName";
     private PullToLoadView mPullToLoadView;
     private RecyclerView mRecyclerView;
     private HomeRecycleViewAdapter mHomeRecycleViewAdapter;
@@ -116,9 +116,10 @@ public class MainActivity extends ToolbarBaseActivity implements PullCallback {
     private void addItemData() {
         for (int i = 0; i < 10; i++) {
             activityList.add(new ActivityParameter(0, "RxAndroid", RxAndroidActivity.class));
-            activityList.add(new ActivityParameter(1, "GreenDao3.2", GreenDaoActivity.class));
-            activityList.add(new ActivityParameter(2, "页面首次显示使用引导", NewbieGuideActivity.class));
-            activityList.add(new ActivityParameter(4, "NiceDialog", NiceDialogActivity.class));
+            activityList.add(new ActivityParameter(1, "RxPermissions", RxPermissionsActivity.class));
+            activityList.add(new ActivityParameter(2, "NewbieGuide", NewbieGuideActivity.class));
+            activityList.add(new ActivityParameter(3, "NiceDialog", NiceDialogActivity.class));
+            activityList.add(new ActivityParameter(4, "GreenDao3.2", GreenDaoActivity.class));
         }
     }
 
