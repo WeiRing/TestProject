@@ -16,6 +16,8 @@ import com.linjiawei.mytestdemo.guide.NewbieGuideActivity;
 import com.linjiawei.mytestdemo.nicedialog.NiceDialogActivity;
 import com.linjiawei.mytestdemo.rxandroid.RxAndroidActivity;
 import com.linjiawei.mytestdemo.rxpermissions.RxPermissionsActivity;
+import com.linjiawei.mytestdemo.view.OpenSourceViewsActivity;
+import com.linjiawei.mytestdemo.web.AgentWebActivity;
 import com.srx.widget.PullCallback;
 import com.srx.widget.PullToLoadView;
 
@@ -111,15 +113,15 @@ public class MainActivity extends ToolbarBaseActivity implements PullCallback {
         });
     }
 
-
-
     private void addItemData() {
         for (int i = 0; i < 10; i++) {
             activityList.add(new ActivityParameter(0, "RxAndroid", RxAndroidActivity.class));
             activityList.add(new ActivityParameter(1, "RxPermissions", RxPermissionsActivity.class));
             activityList.add(new ActivityParameter(2, "NewbieGuide", NewbieGuideActivity.class));
             activityList.add(new ActivityParameter(3, "NiceDialog", NiceDialogActivity.class));
-            activityList.add(new ActivityParameter(4, "GreenDao3.2", GreenDaoActivity.class));
+            activityList.add(new ActivityParameter(4, "AgentWeb", AgentWebActivity.class));
+            activityList.add(new ActivityParameter(5, "GreenDao3.2", GreenDaoActivity.class));
+            activityList.add(new ActivityParameter(6, "开源Views列表", OpenSourceViewsActivity.class));
         }
     }
 

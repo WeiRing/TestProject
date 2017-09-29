@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.linjiawei.mytestdemo.R;
-import com.linjiawei.mytestdemo.rxandroid.OnFragmentInteractionListener;
+import com.linjiawei.mytestdemo.interfacebase.OnFragmentInteractionListener;
 import com.trello.rxlifecycle.components.support.RxFragment;
 
 import java.util.concurrent.TimeUnit;

@@ -23,6 +23,8 @@
             * https://github.com/hongyangAndroid/baseAdapter  */
        compile 'com.zhy:base-rvadapter:3.0.3'
 
+//RadioGroup实现类似ios的分段选择(UISegmentedControl)控件：SegmentedGroup
+        compile 'info.hoang8f:android-segmented:1.0.6'
 
 //RxAndroid相关(以下可能会有重复，需引入即可)
     compile 'com.squareup.okhttp3:okhttp:3.0.1'

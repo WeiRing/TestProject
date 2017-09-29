@@ -1,4 +1,4 @@
-package com.linjiawei.mytestdemo.rxandroid.fragment;
+package com.linjiawei.mytestdemo.view.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,8 +10,15 @@ import com.linjiawei.mytestdemo.R;
 import com.linjiawei.mytestdemo.interfacebase.OnFragmentInteractionListener;
 import com.trello.rxlifecycle.components.support.RxFragment;
 
+import info.hoang8f.android.segmented.SegmentedGroup;
 
-public class RxNetwrokRequest extends RxFragment {
+
+/**
+ * RadioGroup实现类似ios的分段选择(UISegmentedControl)控件：SegmentedGroup
+ * https://github.com/Kaopiz/android-segmented-control
+ */
+
+public class SegmentedGroupFragment extends RxFragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -20,10 +27,10 @@ public class RxNetwrokRequest extends RxFragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private SegmentedGroup segmentedGroup;
 
-    // TODO: Rename and change types and number of parameters
-    public static RxNetwrokRequest newInstance(String param1, String param2) {
-        RxNetwrokRequest fragment = new RxNetwrokRequest();
+    public static SegmentedGroupFragment newInstance(String param1, String param2) {
+        SegmentedGroupFragment fragment = new SegmentedGroupFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -41,10 +48,20 @@ public class RxNetwrokRequest extends RxFragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_rx_netwrok_request, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_segmented_group, container, false);
     }
 
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        segmentedGroup = (SegmentedGroup)view.findViewById(R.id.SegmentedGroup);
+        segmentedGroup.setTintColor(getResources().getColor(R.color.colorPrimaryDark),getResources().getColor(R.color.white));
+    }
+
+
+
+    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(int type) {
         if (mListener != null) {
             mListener.onFragmentInteraction(type);

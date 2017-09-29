@@ -1,4 +1,4 @@
-package com.linjiawei.mytestdemo.rxandroid;
+package com.linjiawei.mytestdemo.interfacebase;
 
 /**
  * Created by LinJiawei on 2017/9/14. 16:43

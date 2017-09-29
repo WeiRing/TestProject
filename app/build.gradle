@@ -73,5 +73,7 @@ dependencies {
     compile 'com.zhy:base-rvadapter:3.0.3'
     compile 'com.android.support:design:25.3.1'
     compile 'com.tbruyelle.rxpermissions:rxpermissions:0.7.0@aar'
+    compile 'com.just.agentweb:agentweb:2.0.1'
+    compile 'info.hoang8f:android-segmented:1.0.6'
     testCompile 'junit:junit:4.12'
 }

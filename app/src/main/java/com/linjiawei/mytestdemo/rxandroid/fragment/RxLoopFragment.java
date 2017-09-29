@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.linjiawei.mytestdemo.R;
-import com.linjiawei.mytestdemo.rxandroid.OnFragmentInteractionListener;
+import com.linjiawei.mytestdemo.interfacebase.OnFragmentInteractionListener;
 
 public class RxLoopFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match

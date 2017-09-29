@@ -1,0 +1,51 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="com.linjiawei.mytestdemo.view.fragments.SegmentedGroupFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <info.hoang8f.android.segmented.SegmentedGroup
+            android:id="@+id/SegmentedGroup"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            segmentedgroup:sc_border_width="2dp"
+            segmentedgroup:sc_corner_radius="12dp">
+
+            <RadioButton
+                style="@style/RadioButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="选项一"
+                android:textColor="@color/colorPrimary"/>
+
+            <RadioButton
+                style="@style/RadioButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="选项二"
+                android:textColor="@color/colorPrimary"/>
+
+            <RadioButton
+                style="@style/RadioButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="选项三"
+                android:textColor="@color/colorPrimary"/>
+
+        </info.hoang8f.android.segmented.SegmentedGroup>
+
+    </LinearLayout>
+
+</FrameLayout>

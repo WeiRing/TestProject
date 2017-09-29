@@ -1,21 +1,20 @@
 package com.linjiawei.mytestdemo.base;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.linjiawei.mytestdemo.R;
+import com.linjiawei.mytestdemo.interfacebase.OnFragmentInteractionListener;
+import com.trello.rxlifecycle.components.RxFragment;
 
-public class BaseListFragment extends Fragment {
+public class BaseListFragment extends RxFragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private String mParam1,mParam2;
     private OnFragmentInteractionListener mListener;
-
 
     public static BaseListFragment newInstance(String param1,String param2) {
         BaseListFragment fragment = new BaseListFragment();
@@ -25,7 +24,6 @@ public class BaseListFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,9 +39,9 @@ public class BaseListFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_base_list, container, false);
     }
 
-    public void onButtonPressed(Uri uri) {
+    public void onButtonPressed(int type) {
         if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+            mListener.onFragmentInteraction(type);
         }
     }
 
@@ -61,9 +59,5 @@ public class BaseListFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
-    }
-
-    public interface OnFragmentInteractionListener {
-        void onFragmentInteraction(Uri uri);
     }
 }
