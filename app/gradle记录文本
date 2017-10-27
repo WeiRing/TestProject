@@ -26,6 +26,13 @@
 //RadioGroup实现类似ios的分段选择(UISegmentedControl)控件：SegmentedGroup
         compile 'info.hoang8f:android-segmented:1.0.6'
 
+
+//自动滚动广告栏框架：BGABanner-Android
+  https://github.com/bingoogolapple/BGABanner-Android#%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D
+        compile 'com.android.support:support-v4:latestVersion'
+        compile 'cn.bingoogolapple:bga-banner:2.1.7@aar'（版本号可能得根据要求进行替换）
+
+
 //RxAndroid相关(以下可能会有重复，需引入即可)
     compile 'com.squareup.okhttp3:okhttp:3.0.1'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0'//retrofit for rxjava

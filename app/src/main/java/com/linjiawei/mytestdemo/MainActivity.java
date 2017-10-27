@@ -13,6 +13,8 @@ import com.blankj.utilcode.util.ToastUtils;
 import com.linjiawei.mytestdemo.base.ToolbarBaseActivity;
 import com.linjiawei.mytestdemo.greendao.GreenDaoActivity;
 import com.linjiawei.mytestdemo.guide.NewbieGuideActivity;
+import com.linjiawei.mytestdemo.imagegallery.GalleryFinalActivity;
+import com.linjiawei.mytestdemo.kotlin.KotlinActivity;
 import com.linjiawei.mytestdemo.nicedialog.NiceDialogActivity;
 import com.linjiawei.mytestdemo.rxandroid.RxAndroidActivity;
 import com.linjiawei.mytestdemo.rxpermissions.RxPermissionsActivity;
@@ -122,6 +124,8 @@ public class MainActivity extends ToolbarBaseActivity implements PullCallback {
             activityList.add(new ActivityParameter(4, "AgentWeb", AgentWebActivity.class));
             activityList.add(new ActivityParameter(5, "GreenDao3.2", GreenDaoActivity.class));
             activityList.add(new ActivityParameter(6, "开源Views列表", OpenSourceViewsActivity.class));
+            activityList.add(new ActivityParameter(7, "GalleryFinal", GalleryFinalActivity.class));
+            activityList.add(new ActivityParameter(8, "Kotlin", KotlinActivity.class));
         }
     }
 

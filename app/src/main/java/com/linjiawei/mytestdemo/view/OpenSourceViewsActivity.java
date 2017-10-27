@@ -36,10 +36,7 @@ public class OpenSourceViewsActivity extends ToolbarBaseActivity {
         mOSAndroidRecycleView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         mOSAndroidRecycleView.setAdapter(new CommonAdapter<String>(this, R.layout.rv_item, dataList) {
             @Override
-            protected void convert(ViewHolder holder, String s, int position) { }
-
-            @Override
-            public void convert(ViewHolder holder, String s) {
+            protected void convert(ViewHolder holder, String s, int position) {
                 holder.setText(R.id.tv_item_text, s);
             }
         });
@@ -56,6 +53,7 @@ public class OpenSourceViewsActivity extends ToolbarBaseActivity {
 
     private void addItem() {
         dataList.add("带圆角的RadioGroup组件");
+        dataList.add("广告栏BGABanner控件");
     }
 
 

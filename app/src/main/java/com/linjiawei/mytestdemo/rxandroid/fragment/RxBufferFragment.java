@@ -5,38 +5,34 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.Button;
 
-import com.bumptech.glide.Glide;
+import com.blankj.utilcode.util.ToastUtils;
+import com.jakewharton.rxbinding.view.RxView;
 import com.linjiawei.mytestdemo.R;
 import com.linjiawei.mytestdemo.interfacebase.OnFragmentInteractionListener;
 import com.trello.rxlifecycle.components.support.RxFragment;
 
-import java.util.concurrent.TimeUnit;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
-import rx.Observable;
-import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 
-public class RxLoopFragment extends RxFragment {
+public class RxBufferFragment extends RxFragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    @Bind(R.id.rxLooperImage)
-    ImageView mRxLooperImage;
+    @Bind(R.id.bufferBtn)
+    Button mBufferBtn;
+
     private String mParam1;
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    private Subscription subscribeAuto;
-    private int[] imagePath = {R.drawable.pic_1, R.drawable.pic_2, R.drawable.pic_3};
-    private int currentIndex = 0;
 
-    public static RxLoopFragment newInstance(String param1, String param2) {
-        RxLoopFragment fragment = new RxLoopFragment();
+    public static RxBufferFragment newInstance(String param1, String param2) {
+        RxBufferFragment fragment = new RxBufferFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -55,41 +51,24 @@ public class RxLoopFragment extends RxFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_rx_loop, container, false);
+        View view = inflater.inflate(R.layout.fragment_rx_buffer, container, false);
         ButterKnife.bind(this, view);
+        clickThreeCount();
         return view;
     }
 
-    /**
-     * 开始轮询
-     */
-    @OnClick(R.id.startLooperBtn)
-    public void startLooperClick(){
-        if (subscribeAuto == null || subscribeAuto.isUnsubscribed()) {
-            subscribeAuto = Observable.interval(500, 3000, TimeUnit.MILLISECONDS)
-                    //延时500开始执行 ，每间隔3000，时间单位
-                    .compose(this.<Long>bindToLifecycle())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(new Action1<Long>() {
-                        @Override
-                        public void call(Long aLong) {
-                            int index = currentIndex % imagePath.length;
-                            Glide.with(RxLoopFragment.this).load(imagePath[index]).into(mRxLooperImage);
-                            currentIndex++;
-                        }
-                    });
-        }
+    private void clickThreeCount(){
+        RxView.clicks(mBufferBtn).buffer(3)
+                .compose(this.<List<Void>>bindToLifecycle())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<List<Void>>() {
+                    @Override
+                    public void call(List<Void> voids) {
+                        ToastUtils.showShort("已经累积点了3次...");
+                    }
+                });
     }
 
-    /**
-     * 停止轮询
-     */
-    @OnClick(R.id.stopLooperBtn)
-    public void stopLooperClick(){
-        if (subscribeAuto != null && !subscribeAuto.isUnsubscribed()) {
-            subscribeAuto.unsubscribe();
-        }
-    }
 
     public void onButtonPressed(int type) {
         if (mListener != null) {
@@ -112,6 +91,7 @@ public class RxLoopFragment extends RxFragment {
         super.onDetach();
         mListener = null;
     }
+
 
     @Override
     public void onDestroyView() {

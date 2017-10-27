@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="com.linjiawei.mytestdemo.rxandroid.fragment.RxZipFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        style="@style/hintTextStyle"
+        android:text="同时加载本地数据及网络数据"/>
+
+
+    <Button
+        android:id="@+id/rxZipGetDataBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@color/colorAccent"
+        android:text="获取数据"
+        android:textColor="@color/white"/>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rxZipRecycleView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

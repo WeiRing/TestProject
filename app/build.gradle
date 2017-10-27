@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 apply plugin: 'org.greenrobot.greendao'
+apply plugin: 'kotlin-android-extensions'//自动引入布局，并会导入指定布局文件中所有控件属性
 android {
     compileSdkVersion 25
     buildToolsVersion '25.0.0'
@@ -75,5 +77,10 @@ dependencies {
     compile 'com.tbruyelle.rxpermissions:rxpermissions:0.7.0@aar'
     compile 'com.just.agentweb:agentweb:2.0.1'
     compile 'info.hoang8f:android-segmented:1.0.6'
+    compile 'cn.bingoogolapple:bga-banner:2.1.7@aar'
     testCompile 'junit:junit:4.12'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }

@@ -7,6 +7,7 @@ import com.blankj.utilcode.util.ToastUtils;
 import com.linjiawei.mytestdemo.R;
 import com.linjiawei.mytestdemo.base.ToolbarBaseActivity;
 import com.linjiawei.mytestdemo.interfacebase.OnFragmentInteractionListener;
+import com.linjiawei.mytestdemo.view.fragments.BGABannerFragment;
 import com.linjiawei.mytestdemo.view.fragments.SegmentedGroupFragment;
 
 
@@ -32,7 +33,7 @@ public class OpenSourceDemoActivity extends ToolbarBaseActivity implements OnFra
                 FragmentUtils.addFragment(getSupportFragmentManager(), SegmentedGroupFragment.newInstance("", ""), R.id.osViewsFragmentContentLayout);
                 break;
             case 1:
-
+                FragmentUtils.addFragment(getSupportFragmentManager(), BGABannerFragment.newInstance("", ""), R.id.osViewsFragmentContentLayout);
                 break;
             case 2:
 

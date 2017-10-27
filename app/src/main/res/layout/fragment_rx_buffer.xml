@@ -1,0 +1,47 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="com.linjiawei.mytestdemo.rxandroid.fragment.RxBufferFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        style="@style/hintTextStyle"
+        android:text="Buffer 操作符"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="20dp"
+            style="@style/cardItemStyle"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="4dp">
+
+            <Button
+                android:id="@+id/bufferBtn"
+                style="@style/cardButtonStyle"
+                android:text="点击累积3次才执行事件"/>
+        </android.support.v7.widget.CardView>
+
+
+        <!--<android.support.v7.widget.CardView-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--style="@style/cardItemStyle"-->
+            <!--app:cardCornerRadius="4dp"-->
+            <!--app:cardElevation="4dp">-->
+
+            <!--<Button-->
+                <!--android:id="@+id/bufferBtn2"-->
+                <!--style="@style/cardButtonStyle"-->
+                <!--android:text="点击累积3次才执行事件"/>-->
+        <!--</android.support.v7.widget.CardView>-->
+
+    </LinearLayout>
+
+
+</LinearLayout>

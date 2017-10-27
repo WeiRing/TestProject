@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="com.linjiawei.mytestdemo.view.fragments.BGABannerFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        style="@style/hintTextStyle"
+        android:text="自动划动广告栏"/>
+
+
+    <!-- 使用更多的自定义属性得参照github上官方的：自定义属性说明 -->
+    <cn.bingoogolapple.bgabanner.BGABanner
+        android:id="@+id/banner_guide_content"
+        style="@style/BannerDefaultStyle"
+        app:banner_pageChangeDuration="1000"
+        app:banner_pointAutoPlayAble="true"
+        app:banner_pointAutoPlayInterval="1600"
+        app:banner_pointContainerBackground="@android:color/transparent"
+        app:banner_pointDrawable="@drawable/bga_banner_selector_point_hollow"
+        app:banner_pointTopBottomMargin="5dp"
+        app:banner_transitionEffect="alpha"/>
+
+</LinearLayout>

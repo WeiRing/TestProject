@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.linjiawei.mytestdemo.kotlin.KotlinActivity">
+
+    <TextView
+        style="@style/hintTextStyle"
+        android:text="kotlin语法学习 \n\n恭喜你，插件接入成功..."/>
+
+
+    <TextView
+        android:id="@+id/kTextViewId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="默认布局中声明的文本"/>
+
+</LinearLayout>

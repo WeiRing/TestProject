@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="com.linjiawei.mytestdemo.rxandroid.fragment.RxCheckBoxUpdateFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        style="@style/hintTextStyle"
+        android:text="UI随着CheckBox状态发生改变而改变"/>
+
+    <CheckBox
+        android:id="@+id/checkbox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="记住状态"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="用于记录并同步SharePreference状态"
+        android:layout_height="50dp"/>
+    
+    <CheckBox
+        android:id="@+id/checkbox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="同意协议"/>
+
+    <Button
+        android:id="@+id/rxNextBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/not_next"
+        android:clickable="false"
+        android:text="下一步"
+        android:textColor="@color/white"/>
+
+
+
+</LinearLayout>

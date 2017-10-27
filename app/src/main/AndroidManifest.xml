@@ -42,6 +42,10 @@
         </activity>
         <activity android:name=".view.OpenSourceDemoActivity">
         </activity>
+        <activity android:name=".imagegallery.GalleryFinalActivity">
+        </activity>
+        <activity android:name=".kotlin.KotlinActivity">
+        </activity>
     </application>
 
 </manifest>

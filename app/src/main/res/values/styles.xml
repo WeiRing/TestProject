@@ -19,12 +19,12 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
-    <!-- NiceDialog 动画效果 -->
+    <!-- NiceDialog 动画效果 start -->
     <style name="EnterExitAnimation" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/enter_anim</item>
         <item name="android:windowExitAnimation">@anim/exit_anim</item>
     </style>
-    <!-- NiceDialog 动画效果 -->
+    <!-- NiceDialog 动画效果 end -->
     <style name="TextStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -32,18 +32,58 @@
         <item name="android:textSize">16sp</item>
     </style>
 
-
-    android:layout_height="wrap_content"
-    android:layout_width="match_parent"
-    android:gravity="center"
-    android:padding="20dp"
     <style name="hintTextStyle">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:gravity">center</item>
         <item name="android:padding">20dp</item>
+    </style>
 
+
+    <style name="BannerDefaultStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">120dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <!-- 自定义属性在styles.xml中不需要命名空间,直接用属性名就可以了 -->
+        <!-- 开启自动轮播 -->
+        <item name="banner_pointAutoPlayAble">true</item>
+        <!-- 自动轮播的时间间隔 -->
+        <item name="banner_pointAutoPlayInterval">1500</item>
+        <!-- 指示点容器背景 -->
+        <item name="banner_pointContainerBackground">#44aaaaaa</item>
+        <!-- 指示点背景 -->
+        <item name="banner_pointDrawable">@drawable/bga_banner_selector_point_hollow</item>
+        <!-- 指示点容器左右内间距 -->
+        <item name="banner_pointContainerLeftRightPadding">10dp</item>
+        <!-- 指示点上下外间距 -->
+        <item name="banner_pointTopBottomMargin">3dp</item>
+        <!-- 指示点左右外间距 -->
+        <item name="banner_pointLeftRightMargin">3dp</item>
+        <!-- 指示器的位置 -->
+        <item name="banner_indicatorGravity">bottom|center_horizontal</item>
+        <!-- 页码切换过程的时间长度 -->
+        <item name="banner_pageChangeDuration">800</item>
+        <!-- 提示文案的文字大小 -->
+        <item name="banner_tipTextSize">10sp</item>
+        <!-- 提示文案的文字颜色 -->
+        <item name="banner_tipTextColor">@android:color/white</item>
+        <!-- 加载网络数据时覆盖在BGABanner最上层的占位图 -->
+        <item name="banner_placeholderDrawable">@mipmap/ic_launcher</item>
 
     </style>
-    
+
+    <style name="cardItemStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_marginLeft">3dp</item>
+        <item name="android:layout_marginRight">3dp</item>
+    </style>
+    <style name="cardButtonStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@null</item>
+    </style>
+
+
 </resources>
