@@ -51,6 +51,8 @@ dependencies {
 
     //NewbieGuide指引浮层框架相关
     //基于FragmentDialog提示框的库
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "org.jetbrains.anko:anko-common:$anko_version"
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.android.support:cardview-v7:25.3.1'
@@ -79,7 +81,6 @@ dependencies {
     compile 'info.hoang8f:android-segmented:1.0.6'
     compile 'cn.bingoogolapple:bga-banner:2.1.7@aar'
     testCompile 'junit:junit:4.12'
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 repositories {
     mavenCentral()

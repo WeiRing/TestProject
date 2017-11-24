@@ -46,6 +46,10 @@
         </activity>
         <activity android:name=".kotlin.KotlinActivity">
         </activity>
+        <activity android:name=".kotlin.demo.KotlinListDemoActivity">
+        </activity>
+        <activity android:name=".kotlin.demo.KotlinDemoActivity">
+        </activity>
     </application>
 
 </manifest>
