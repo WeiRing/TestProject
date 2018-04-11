@@ -60,6 +60,13 @@
             android:onClick="showDialog6"
             android:text="确定-1" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="openAppClick"
+            android:text="启动app" />
+
     </LinearLayout>
 
 </ScrollView>

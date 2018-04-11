@@ -9,7 +9,7 @@
 
     <TextView
         style="@style/hintTextStyle"
-        android:text="@string/des_demo_loop"/>
+        android:text="@string/des_demo_merge"/>
 
     <TextView
         android:id="@+id/concatText"

@@ -8,18 +8,19 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.blankj.utilcode.util.ToastUtils;
-import com.jakewharton.rxbinding.view.RxView;
+import com.jakewharton.rxbinding2.view.RxView;
 import com.linjiawei.mytestdemo.R;
+import com.linjiawei.mytestdemo.base.RxFragmentV4;
 import com.linjiawei.mytestdemo.interfacebase.OnFragmentInteractionListener;
-import com.trello.rxlifecycle.components.support.RxFragment;
 
 import java.util.concurrent.TimeUnit;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import rx.functions.Action1;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Consumer;
 
-public class RxBtnNotMoreClickFragment extends RxFragment {
+public class RxBtnNotMoreClickFragment extends RxFragmentV4 {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     @Bind(R.id.notFirstMoreBtn)
@@ -60,26 +61,30 @@ public class RxBtnNotMoreClickFragment extends RxFragment {
 
 
     private void notMoreClickFirst(){
-        RxView.clicks(mNotFirstMoreBtn).throttleFirst(3, TimeUnit.SECONDS).subscribe(new Action1<Void>() {
+        RxView.clicks(mNotFirstMoreBtn).throttleFirst(3, TimeUnit.SECONDS).subscribe(new Consumer<Object>() {
             @Override
-            public void call(Void aVoid) {
-                //3秒内无论点击多少次，只会响应事件1次...
+            public void accept(@NonNull Object o) throws Exception {
                 ToastUtils.showShort("3秒内无论点击多少次，只会响应事件1次...");
-
             }
         });
+
     }
 
 
     private void notMoreClickLast(){
-        RxView.clicks(mNotLastMoreBtn).throttleLast(3, TimeUnit.SECONDS).subscribe(new Action1<Void>() {
+        /*RxView.clicks(mNotLastMoreBtn).throttleLast(3, TimeUnit.SECONDS).subscribe(new Action1<Void>() {
             @Override
             public void call(Void aVoid) {
-                //3秒内无论点击多少次，只会响应事件1次...
                 ToastUtils.showShort("3秒后再响应事件1次,且3s内只响应一次...");
-
+            }
+        });*/
+        RxView.clicks(mNotLastMoreBtn).throttleLast(3, TimeUnit.SECONDS).subscribe(new Consumer<Object>() {
+            @Override
+            public void accept(@NonNull Object o) throws Exception {
+                ToastUtils.showShort("3秒后再响应事件1次,且3s内只响应一次...");
             }
         });
+
     }
 
 

@@ -7,11 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.linjiawei.mytestdemo.R;
+import com.linjiawei.mytestdemo.base.RxFragmentV4;
 import com.linjiawei.mytestdemo.interfacebase.OnFragmentInteractionListener;
-import com.trello.rxlifecycle.components.support.RxFragment;
 
 
-public class RxNetwrokRequest extends RxFragment {
+public class RxNetwrokRequest extends RxFragmentV4 {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 

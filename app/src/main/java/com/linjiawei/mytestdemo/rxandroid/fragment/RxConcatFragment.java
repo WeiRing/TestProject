@@ -9,21 +9,24 @@ import android.widget.TextView;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.linjiawei.mytestdemo.R;
+import com.linjiawei.mytestdemo.base.RxFragmentV4;
 import com.linjiawei.mytestdemo.interfacebase.OnFragmentInteractionListener;
 import com.othershe.nicedialog.BaseNiceDialog;
 import com.othershe.nicedialog.NiceDialog;
-import com.trello.rxlifecycle.components.support.RxFragment;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import rx.Observable;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action0;
-import rx.functions.Action1;
-import rx.schedulers.Schedulers;
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Action;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
-public class RxConcatFragment extends RxFragment {
+
+public class RxConcatFragment extends RxFragmentV4 {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
@@ -69,7 +72,28 @@ public class RxConcatFragment extends RxFragment {
                 .compose(this.<String>bindToLifecycle())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<String>() {
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(@NonNull String s) throws Exception {
+                        mConcatText.setText(s);
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(@NonNull Throwable throwable) throws Exception {
+
+                    }
+                }, new Action() {
+                    @Override
+                    public void run() throws Exception {
+                        if (loadingDialog != null)
+                            loadingDialog.dismiss();
+                        ToastUtils.showShort("onCompleted");
+                    }
+                });
+
+
+        //1.0写法
+                /*.subscribe(new Action1<String>() {
                     @Override
                     public void call(String contacters) {
                         mConcatText.setText(contacters);
@@ -86,14 +110,14 @@ public class RxConcatFragment extends RxFragment {
                             loadingDialog.dismiss();
                         ToastUtils.showShort("onCompleted");
                     }
-                });
+                });*/
     }
 
     /**
      * 模拟提取本地缓存
      */
     private Observable<String> getLocalCacheData() {
-        Observable<String> localObservable = Observable.create(new Observable.OnSubscribe<String>() {
+        /*Observable<String> localObservable = Observable.create(new Observable.OnSubscribe<String>() {
             @Override
             public void call(Subscriber<? super String> subscriber) {
                 try {
@@ -107,6 +131,21 @@ public class RxConcatFragment extends RxFragment {
                 subscriber.onCompleted();
 
             }
+        });*/
+
+        Observable<String> localObservable = Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter<String> e) throws Exception {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException exception) {
+                    exception.printStackTrace();
+                }
+                //取到本地缓存的数据
+                String localData = "这是本地缓存的数据";
+                e.onNext(localData);
+                e.onComplete();
+            }
         });
         return localObservable;
     }
@@ -115,7 +154,7 @@ public class RxConcatFragment extends RxFragment {
      * 模拟加载网络数据
      */
     private Observable<String> getNetData() {
-        final Observable<String> netObservable = Observable.create(new Observable.OnSubscribe<String>() {
+        /*final Observable<String> netObservable = Observable.create(new Observable.OnSubscribe<String>() {
             @Override
             public void call(Subscriber<? super String> subscriber) {
                 try {
@@ -126,6 +165,19 @@ public class RxConcatFragment extends RxFragment {
                 String netData = "这是网络上加载到的数据...";
                 subscriber.onNext(netData);
                 subscriber.onCompleted();
+            }
+        });*/
+        final Observable<String> netObservable = Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter<String> e) throws Exception {
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException exception) {
+                    exception.printStackTrace();
+                }
+                String netData = "这是网络上加载到的数据...";
+                e.onNext(netData);
+                e.onComplete();
             }
         });
         return netObservable;

@@ -7,4 +7,5 @@
     <color name="white">#ffffff</color>
     <color name="grayWhite">#c7ffffff</color>
     <color name="not_next">#C5C0C0</color>
+    <color name="pick">#f69988</color>
 </resources>

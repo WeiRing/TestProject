@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.blankj.utilcode.util.ToastUtils;
+import com.linjiawei.mytestdemo.arouter.ARouterActivity;
 import com.linjiawei.mytestdemo.base.ToolbarBaseActivity;
 import com.linjiawei.mytestdemo.greendao.GreenDaoActivity;
 import com.linjiawei.mytestdemo.guide.NewbieGuideActivity;
@@ -95,13 +96,11 @@ public class MainActivity extends ToolbarBaseActivity implements PullCallback {
                 if (holder.getItemViewType() == HomeRecycleViewAdapter.ITEM_TYPE_HEADER) {
                     TextView textView = (TextView) ((CardView) holder.itemView).findViewById(R.id.headText);
                     ToastUtils.showShort( textView.getText().toString());
+                } else if (holder.getItemViewType() == HomeRecycleViewAdapter.ITEM_TYPE_CONTENT) {
+                    openNewActivity(activityList.get(holder.getPosition() - HomeRecycleViewAdapter.mHeaderCount).getName(), MainActivity.this, activityList.get(holder.getPosition() - HomeRecycleViewAdapter.mHeaderCount).getActivity());
                 } else {
-                    if (holder.getItemViewType() == HomeRecycleViewAdapter.ITEM_TYPE_CONTENT) {
-                        openNewActivity(activityList.get(holder.getPosition() - HomeRecycleViewAdapter.mHeaderCount).getName(),MainActivity.this, activityList.get(holder.getPosition() - HomeRecycleViewAdapter.mHeaderCount).getActivity());
-                    } else if (holder.getItemViewType() == HomeRecycleViewAdapter.ITEM_TYPE_FOOTER) {
-                        TextView textView = (TextView) ((CardView) holder.itemView).findViewById(R.id.footerText);
-                        ToastUtils.showShort(textView.getText().toString());
-                    }
+                    TextView textView = (TextView) ((CardView) holder.itemView).findViewById(R.id.footerText);
+                    ToastUtils.showShort(textView.getText().toString());
                 }
             }
 
@@ -126,6 +125,7 @@ public class MainActivity extends ToolbarBaseActivity implements PullCallback {
             activityList.add(new ActivityParameter(6, "开源Views列表", OpenSourceViewsActivity.class));
             activityList.add(new ActivityParameter(7, "GalleryFinal", GalleryFinalActivity.class));
             activityList.add(new ActivityParameter(8, "Kotlin", KotlinActivity.class));
+            activityList.add(new ActivityParameter(9, "ARouter", ARouterActivity.class));
         }
     }
 

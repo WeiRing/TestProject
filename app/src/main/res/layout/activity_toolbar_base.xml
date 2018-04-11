@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary">
-          <!-- TextView 可以直接设置系统带的样式 -->
+        <!-- TextView 可以直接设置系统带的样式 -->
         <TextView
             android:id="@+id/toolbarTitleText"
             style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"

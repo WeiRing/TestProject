@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 
 import com.linjiawei.mytestdemo.R;
 import com.linjiawei.mytestdemo.interfacebase.OnFragmentInteractionListener;
-import com.trello.rxlifecycle.components.RxFragment;
 
-public class BaseListFragment extends RxFragment {
+
+public class BaseListFragment extends RxFragmentV4 {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private String mParam1,mParam2;

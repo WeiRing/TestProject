@@ -1,6 +1,8 @@
 package com.linjiawei.mytestdemo.nicedialog;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.Toast;
 import com.blankj.utilcode.util.ToastUtils;
 import com.linjiawei.mytestdemo.R;
 import com.linjiawei.mytestdemo.base.ToolbarBaseActivity;
+import com.linjiawei.mytestdemo.tools.AppTools;
 import com.othershe.nicedialog.BaseNiceDialog;
 import com.othershe.nicedialog.NiceDialog;
 import com.othershe.nicedialog.ViewConvertListener;
@@ -136,6 +139,21 @@ public class NiceDialogActivity extends ToolbarBaseActivity {
                 .setMargin(60)
                 .setOutCancel(true)
                 .show(getSupportFragmentManager());
+    }
+
+    public void openAppClick(View view){
+        //通过已知包名的方式启动
+    //    AppTools.startOtherApp(NiceDialogActivity.this, "com.clio.selfservice.uat");
+
+        //通过注册scheme的方式向外暴露接口的方式启动
+        //详细配置可查看：https://www.cnblogs.com/zhang-cb/p/7093769.html
+        if (AppTools.hasInstallApp(this,"sino://escan:8088/news?")) {
+            Intent action = new Intent(Intent.ACTION_VIEW,Uri.parse("sino://escan:8088/news?system=android&id=000000"));
+            action.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);//这种启动模式如果不添加你会发现有时候返回顺序是混乱的，并且不是采用独立启动APP的方式
+            startActivity(action);
+        } else {
+            ToastUtils.showShort("本机没有安装eScan");
+        }
     }
 
     public static class ConfirmDialog extends BaseNiceDialog {

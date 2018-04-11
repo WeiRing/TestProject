@@ -10,8 +10,8 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.linjiawei.mytestdemo.R;
+import com.linjiawei.mytestdemo.base.RxFragmentV4;
 import com.linjiawei.mytestdemo.interfacebase.OnFragmentInteractionListener;
-import com.trello.rxlifecycle.components.support.RxFragment;
 
 import java.util.Arrays;
 
@@ -25,7 +25,7 @@ import cn.bingoogolapple.bgabanner.BGABanner;
  * 接入的5个步骤:https://github.com/bingoogolapple/BGABanner-Android#%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D
  */
 
-public class BGABannerFragment extends RxFragment {
+public class BGABannerFragment extends RxFragmentV4 {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;

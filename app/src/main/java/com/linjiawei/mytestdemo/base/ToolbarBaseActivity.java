@@ -55,7 +55,6 @@ public abstract class ToolbarBaseActivity extends AppCompatActivity {
         }
     }
 
-
     protected abstract int getContentView();
 
     protected abstract void initData(Bundle savedInstanceState);
@@ -88,11 +87,21 @@ public abstract class ToolbarBaseActivity extends AppCompatActivity {
     private int menuResId;
     private String menuStr;
 
+    /**
+     *  重写此方法可以自定右边按钮icon及事件
+     * @param menuStr
+     * @param clickToolbarRightBtnListener
+     */
     public void setToolbarRightBthListener(String menuStr,OnClickToolbarBtnListener clickToolbarRightBtnListener){
         this.menuStr = menuStr;
         this.clickToolbarRightBtnListener = clickToolbarRightBtnListener;
     }
 
+    /**
+     * 重写此方法可以自定返回按钮icon及事件
+     * @param menuResId
+     * @param clickToolbarRightBtnListener
+     */
     public void setToolbarRightBthListener(int menuResId,OnClickToolbarBtnListener clickToolbarRightBtnListener){
         this.menuResId = menuResId;
         this.clickToolbarRightBtnListener = clickToolbarRightBtnListener;

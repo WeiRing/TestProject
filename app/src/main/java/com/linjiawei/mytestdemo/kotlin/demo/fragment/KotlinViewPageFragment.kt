@@ -9,11 +9,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.linjiawei.mytestdemo.R
+import com.linjiawei.mytestdemo.base.RxFragmentV4
 import com.linjiawei.mytestdemo.rxandroid.fragment.RxLoopFragment
-import com.trello.rxlifecycle.components.support.RxFragment
 import kotlinx.android.synthetic.main.fragment_kotlin_view_page.*
 
-class KotlinViewPageFragment : RxFragment() {
+class KotlinViewPageFragment : RxFragmentV4() {
     var tabTitle: ArrayList<String> = arrayListOf("段子","鸡汤")
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {

@@ -52,6 +52,7 @@
     <string name="des_demo_reuse">这是一个演示一个订阅者订阅多个被订阅者Demo</string>
     <string name="permission_camera">申请拍照权限</string>
     <string name="permission_sd">申请外部SD卡权限</string>
+    <string name="permission_call_phone">申请打电话等多个权限</string>
 
 
 </resources>

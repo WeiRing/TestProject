@@ -74,6 +74,8 @@ public class RxAndroidActivity extends ToolbarBaseActivity {
         dataList.add("fragment间数据传递");
         dataList.add("RxBus");
         dataList.add("复用订阅者");
+        dataList.add("倒计时");
+        dataList.add("RxAndroid相关的功能点练习");
     }
 
 

@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.linjiawei.mytestdemo.R
-import com.trello.rxlifecycle.components.support.RxFragment
+import com.linjiawei.mytestdemo.base.RxFragmentV4
 import kotlinx.android.synthetic.main.fragment_kotlin_view_page_fragment_child_one.*
 
-class KotlinViewPageFragmentChildOne : RxFragment() {
+class KotlinViewPageFragmentChildOne : RxFragmentV4() {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater!!.inflate(R.layout.fragment_kotlin_view_page_fragment_child_one, container, false)

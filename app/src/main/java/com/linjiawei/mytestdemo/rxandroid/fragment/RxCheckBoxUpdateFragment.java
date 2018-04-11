@@ -11,19 +11,21 @@ import android.widget.Button;
 import android.widget.CheckBox;
 
 import com.blankj.utilcode.util.ToastUtils;
-import com.f2prateek.rx.preferences.Preference;
-import com.f2prateek.rx.preferences.RxSharedPreferences;
-import com.jakewharton.rxbinding.widget.RxCompoundButton;
+import com.f2prateek.rx.preferences2.Preference;
+import com.f2prateek.rx.preferences2.RxSharedPreferences;
+import com.jakewharton.rxbinding2.widget.RxCompoundButton;
 import com.linjiawei.mytestdemo.R;
+import com.linjiawei.mytestdemo.base.RxFragmentV4;
 import com.linjiawei.mytestdemo.interfacebase.OnFragmentInteractionListener;
-import com.trello.rxlifecycle.components.support.RxFragment;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import rx.functions.Action1;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Consumer;
 
-public class RxCheckBoxUpdateFragment extends RxFragment {
+
+public class RxCheckBoxUpdateFragment extends RxFragmentV4 {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     @Bind(R.id.checkbox1)
@@ -73,16 +75,25 @@ public class RxCheckBoxUpdateFragment extends RxFragment {
         Preference<Boolean> myPreFunction = rxPreferences.getBoolean("selectState", false);
         mCheckbox1.setChecked(myPreFunction.get());
         //checkBox的状态跟SharedPreferences同步联动
-        RxCompoundButton.checkedChanges(mCheckbox1).subscribe(myPreFunction.asAction());
+        RxCompoundButton.checkedChanges(mCheckbox1).subscribe(myPreFunction.asConsumer());
     }
 
     /**
      * 改变复选框来更新视图
      */
     public void changeCheckBoxToUpdateView(){
-        RxCompoundButton.checkedChanges(mCheckbox2).subscribe(new Action1<Boolean>() {
+        /*RxCompoundButton.checkedChanges(mCheckbox2).subscribe(new Action1<Boolean>() {
             @Override
             public void call(Boolean aBoolean) {
+                mRxNextBtn.setClickable(aBoolean);
+                mRxNextBtn.setBackgroundResource(aBoolean ? R.color.colorAccent : R.color.not_next);
+            }
+        });*/
+
+        //2.0用法
+        RxCompoundButton.checkedChanges(mCheckbox2).subscribe(new Consumer<Boolean>() {
+            @Override
+            public void accept(@NonNull Boolean aBoolean) throws Exception {
                 mRxNextBtn.setClickable(aBoolean);
                 mRxNextBtn.setBackgroundResource(aBoolean ? R.color.colorAccent : R.color.not_next);
             }

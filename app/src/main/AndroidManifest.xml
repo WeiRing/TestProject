@@ -6,6 +6,10 @@
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
     <application
         android:name=".MyApplication"
@@ -49,6 +53,12 @@
         <activity android:name=".kotlin.demo.KotlinListDemoActivity">
         </activity>
         <activity android:name=".kotlin.demo.KotlinDemoActivity">
+        </activity>
+        <activity android:name=".arouter.ARouterActivity">
+        </activity>
+        <activity android:name=".arouter.ARouterActivityNoResult">
+        </activity>
+        <activity android:name=".rxandroid.fragment.function.RxFunctionExerciseActivity">
         </activity>
     </application>
 

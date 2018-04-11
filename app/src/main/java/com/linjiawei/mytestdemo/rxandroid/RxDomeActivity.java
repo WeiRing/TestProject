@@ -10,10 +10,12 @@ import com.linjiawei.mytestdemo.rxandroid.fragment.RxBtnNotMoreClickFragment;
 import com.linjiawei.mytestdemo.rxandroid.fragment.RxBufferFragment;
 import com.linjiawei.mytestdemo.rxandroid.fragment.RxCheckBoxUpdateFragment;
 import com.linjiawei.mytestdemo.rxandroid.fragment.RxConcatFragment;
+import com.linjiawei.mytestdemo.rxandroid.fragment.RxCountDownFragment;
 import com.linjiawei.mytestdemo.rxandroid.fragment.RxLoopFragment;
 import com.linjiawei.mytestdemo.rxandroid.fragment.RxNetwrokRequest;
 import com.linjiawei.mytestdemo.rxandroid.fragment.RxTimerFragment;
 import com.linjiawei.mytestdemo.rxandroid.fragment.RxZipFragment;
+import com.linjiawei.mytestdemo.rxandroid.fragment.function.RxFunctionHomeFragments;
 
 public class RxDomeActivity extends ToolbarBaseActivity implements OnFragmentInteractionListener {
     private int showType = 0;
@@ -70,6 +72,13 @@ public class RxDomeActivity extends ToolbarBaseActivity implements OnFragmentInt
                 break;
             case 12:
 
+                break;
+            case 13:
+                FragmentUtils.addFragment(getSupportFragmentManager(), RxCountDownFragment.newInstance("", ""), R.id.rxFragmentContent);
+                break;
+            case 14:
+                //所有RxAndroid相关功能点测试
+                FragmentUtils.addFragment(getSupportFragmentManager(), RxFunctionHomeFragments.newInstance("", ""), R.id.rxFragmentContent);
                 break;
         }
     }

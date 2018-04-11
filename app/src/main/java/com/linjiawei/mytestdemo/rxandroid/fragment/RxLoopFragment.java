@@ -7,22 +7,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.bumptech.glide.Glide;
 import com.linjiawei.mytestdemo.R;
+import com.linjiawei.mytestdemo.base.RxFragmentV4;
 import com.linjiawei.mytestdemo.interfacebase.OnFragmentInteractionListener;
-import com.trello.rxlifecycle.components.support.RxFragment;
 
 import java.util.concurrent.TimeUnit;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import rx.Observable;
-import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 
-public class RxLoopFragment extends RxFragment {
+
+public class RxLoopFragment extends RxFragmentV4 {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     @Bind(R.id.rxLooperImage)
@@ -31,7 +34,7 @@ public class RxLoopFragment extends RxFragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    private Subscription subscribeAuto;
+    private Disposable subscribe;
     private int[] imagePath = {R.drawable.pic_1, R.drawable.pic_2, R.drawable.pic_3};
     private int currentIndex = 0;
 
@@ -64,15 +67,15 @@ public class RxLoopFragment extends RxFragment {
      * 开始轮询
      */
     @OnClick(R.id.startLooperBtn)
-    public void startLooperClick(){
-        if (subscribeAuto == null || subscribeAuto.isUnsubscribed()) {
-            subscribeAuto = Observable.interval(500, 3000, TimeUnit.MILLISECONDS)
+    public void startLooperClick() {
+        if (subscribe == null || subscribe.isDisposed()) {
+            subscribe = Observable.interval(500, 3000, TimeUnit.MILLISECONDS)
                     //延时500开始执行 ，每间隔3000，时间单位
                     .compose(this.<Long>bindToLifecycle())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(new Action1<Long>() {
+                    .subscribe(new Consumer<Long>() {
                         @Override
-                        public void call(Long aLong) {
+                        public void accept(@NonNull Long aLong) throws Exception {
                             int index = currentIndex % imagePath.length;
                             Glide.with(RxLoopFragment.this).load(imagePath[index]).into(mRxLooperImage);
                             currentIndex++;
@@ -85,9 +88,10 @@ public class RxLoopFragment extends RxFragment {
      * 停止轮询
      */
     @OnClick(R.id.stopLooperBtn)
-    public void stopLooperClick(){
-        if (subscribeAuto != null && !subscribeAuto.isUnsubscribed()) {
-            subscribeAuto.unsubscribe();
+    public void stopLooperClick() {
+        if (subscribe != null && !subscribe.isDisposed()) {
+            subscribe.dispose();
+            ToastUtils.showShort("停止更新...");
         }
     }
 
@@ -118,4 +122,11 @@ public class RxLoopFragment extends RxFragment {
         super.onDestroyView();
         ButterKnife.unbind(this);
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        stopLooperClick();
+    }
+
 }

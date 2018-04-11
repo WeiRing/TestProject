@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.linjiawei.mytestdemo.R;
+import com.linjiawei.mytestdemo.base.RxFragmentV4;
 import com.linjiawei.mytestdemo.interfacebase.OnFragmentInteractionListener;
-import com.trello.rxlifecycle.components.support.RxFragment;
 
 import info.hoang8f.android.segmented.SegmentedGroup;
 
@@ -18,7 +18,7 @@ import info.hoang8f.android.segmented.SegmentedGroup;
  * https://github.com/Kaopiz/android-segmented-control
  */
 
-public class SegmentedGroupFragment extends RxFragment {
+public class SegmentedGroupFragment extends RxFragmentV4 {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 

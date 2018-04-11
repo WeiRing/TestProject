@@ -10,19 +10,20 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.linjiawei.mytestdemo.R;
+import com.linjiawei.mytestdemo.base.RxFragmentV4;
 import com.linjiawei.mytestdemo.interfacebase.OnFragmentInteractionListener;
-import com.trello.rxlifecycle.components.support.RxFragment;
 
 import java.util.concurrent.TimeUnit;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import rx.Observable;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Consumer;
 
 
-public class RxTimerFragment extends RxFragment {
+public class RxTimerFragment extends RxFragmentV4 {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     @Bind(R.id.iv_welcome) ImageView mIvWelcome;
@@ -65,10 +66,21 @@ public class RxTimerFragment extends RxFragment {
     }
 
     private void starTimer() {
-        Observable.timer(3000 , TimeUnit.MILLISECONDS)
+        Observable.timer(3000, TimeUnit.MILLISECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
                 .compose(this.<Long>bindToLifecycle())
-                .subscribe(new Action1<Long>() {
+                .subscribe(new Consumer<Long>() {
+                    @Override
+                    public void accept(@NonNull Long aLong) throws Exception {
+                        // Glide.with(TimerFragment.this).load("http://static.zuchecdn.com/wap/newversion/images/20151225fanli_app.jpg").crossFade().into(iv_welcome);
+                        mIvWelcome.setVisibility(View.VISIBLE);
+                        ObjectAnimator
+                                .ofFloat(mIvWelcome, "alpha", 0.0F, 1.0F)
+                                .setDuration(500)
+                                .start();
+                    }
+                });
+                /*.subscribe(new Action1<Long>() {
                     @Override
                     public void call(Long aLong) {
                         // Glide.with(TimerFragment.this).load("http://static.zuchecdn.com/wap/newversion/images/20151225fanli_app.jpg").crossFade().into(iv_welcome);
@@ -78,7 +90,7 @@ public class RxTimerFragment extends RxFragment {
                                 .setDuration(500)
                                 .start();
                     }
-                });
+                });*/
     }
 
 

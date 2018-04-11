@@ -8,19 +8,20 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.blankj.utilcode.util.ToastUtils;
-import com.jakewharton.rxbinding.view.RxView;
+import com.jakewharton.rxbinding2.view.RxView;
 import com.linjiawei.mytestdemo.R;
+import com.linjiawei.mytestdemo.base.RxFragmentV4;
 import com.linjiawei.mytestdemo.interfacebase.OnFragmentInteractionListener;
-import com.trello.rxlifecycle.components.support.RxFragment;
 
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Consumer;
 
-public class RxBufferFragment extends RxFragment {
+public class RxBufferFragment extends RxFragmentV4 {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     @Bind(R.id.bufferBtn)
@@ -59,14 +60,21 @@ public class RxBufferFragment extends RxFragment {
 
     private void clickThreeCount(){
         RxView.clicks(mBufferBtn).buffer(3)
-                .compose(this.<List<Void>>bindToLifecycle())
+                .compose(this.<List<Object>>bindToLifecycle())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<List<Void>>() {
+                .subscribe(new Consumer<List<Object>>() {
+                    @Override
+                    public void accept(@NonNull List<Object> objects) throws Exception {
+                        ToastUtils.showShort("已经累积点了3次...");
+                    }
+                });
+                /*.subscribe(new Action1<List<Void>>() {
                     @Override
                     public void call(List<Void> voids) {
                         ToastUtils.showShort("已经累积点了3次...");
                     }
-                });
+                });*/
+
     }
 
 
