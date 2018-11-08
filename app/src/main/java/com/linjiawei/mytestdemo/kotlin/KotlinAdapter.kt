@@ -34,7 +34,8 @@ class KotlinAdapter(val mContext: Context, val datas: ArrayList<String>) : Recyc
     class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var mTextView: TextView
         init {
-            mTextView = view.findViewById(R.id.list_item_text) as TextView
+        //    mTextView = view.findViewById(R.id.list_item_text) as TextView  过时写法
+            mTextView = view.findViewById<TextView>(R.id.list_item_text)
         }
     }
 }

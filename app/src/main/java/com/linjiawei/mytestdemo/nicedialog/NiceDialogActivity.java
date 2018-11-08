@@ -148,11 +148,11 @@ public class NiceDialogActivity extends ToolbarBaseActivity {
         //通过注册scheme的方式向外暴露接口的方式启动
         //详细配置可查看：https://www.cnblogs.com/zhang-cb/p/7093769.html
         if (AppTools.hasInstallApp(this,"sino://escan:8088/news?")) {
-            Intent action = new Intent(Intent.ACTION_VIEW,Uri.parse("sino://escan:8088/news?system=android&id=000000"));
+            Intent action = new Intent(Intent.ACTION_VIEW,Uri.parse("sino://escan:8088/news?system=android&id=000000&token=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJlc2NhbiIsInN1YiI6IjgxMDY3MCIsImlhdCI6MTUyNDQ2NDQ3NiwiZXhwIjoxNTI0NDY2Mjc2fQ.v1it2D3QKNSfMa71I_8ZeJQYZSaGpL2IHYJ5cPvWCVc"));
             action.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);//这种启动模式如果不添加你会发现有时候返回顺序是混乱的，并且不是采用独立启动APP的方式
             startActivity(action);
         } else {
-            ToastUtils.showShort("本机没有安装eScan");
+            ToastUtils.showShort("本机没有安装eScan APP");
         }
     }
 

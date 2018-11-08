@@ -12,6 +12,8 @@
 //具有下拉刷新、上拉加载的功RecycleView(相当于一个定义控件)
         compile 'com.github.tosslife:pullloadview:1.0.2'
 
+//AndroidAutoLayout 自动布局适配   具体引入使用：https://github.com/hongyangAndroid/AndroidAutoLayout
+        compile 'com.zhy:autolayout:1.4.5'
 
 //非常简单易用的6.0权限申请，通过RxPermissions方式申请，简单粗爆...（接入介绍：http://www.jianshu.com/p/42b8a1bb7431    2.0接入：https://github.com/tbruyelle/RxPermissions）
        (1.0写法)
@@ -20,6 +22,9 @@
        (2.0写法)
        compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.3@aar'
        compile 'io.reactivex.rxjava2:rxjava:2.0.1'
+
+//一行代码解决所有高危权限的申请框架 XXPermissions（支持请求6.0及以上的悬浮窗权限和8.0及以上的安装权限） 接入介绍：https://github.com/getActivity/XXPermissions
+        compile 'com.hjq:xxpermissions:3.8'
 
 // 张鸿洋: Android 万能的Adapter for ListView,RecyclerView,GridView等，支持多种Item类型的情况。
         /** 原理及引入介绍：
@@ -84,3 +89,49 @@
 //ARouter  -->  阿里2017年开源的页面路由框架 [ https://github.com/alibaba/ARouter ]
     compile 'com.alibaba:arouter-api:1.3.1'
     annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
+
+//StatusBarUtil 状态栏工具类（实现沉浸式状态栏/变色状态栏）  --> 具体详见：https://jaeger.itscoder.com/android/2016/03/27/statusbar-util.html
+    compile 'com.jaeger.statusbarutil:library:1.4.0'
+
+//Android Activity 滑动返回。支持微信滑动返回样式、横屏滑动返回、全屏滑动返回  --> https://github.com/bingoogolapple/BGASwipeBackLayout-Android
+    compile 'cn.bingoogolapple:bga-swipebacklayout:1.1.8@aar'
+
+//最好的安卓网络请求库： Fast Android Networking  --> 具体详见：http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2016/1008/6663.html
+    compile 'com.amitshekhar.android:rx2-android-networking:1.0.1'
+
+
+(已经去除不集成
+//基于Glide的二次封装,极大方便随时更换图片加载框架  --> 具体详见：https://blog.csdn.net/github_33304260/article/details/70237052
+                                                使用Demo： https://github.com/libin7278/ImageLoader
+    compile 'com.libin.imageloader:ImageLoader:1.0.3'
+)
+
+//AutoEx帮助Android开发者，让项目在崩溃时从异常堆栈中，自动寻找Stack Overflow的回答。  --> 具体详见：https://github.com/BolexLiu/AutoEx
+    dependencies {
+         debugImplementation 'com.github.BolexLiu.AutoEx:AutoEx-Lib:v1.0.8'
+         releaseImplementation 'com.github.BolexLiu.AutoEx:AutoEx-Lib-No-Op:v1.0.8'
+    }
+    （低版本Gradle使用 debugCompile releaseCompile 代替debugImplementation releaseImplementation）
+
+
+//FloatWindow 任意界面悬浮窗，实现悬浮窗如此简单  --> https://github.com/yhaolpz/FloatWindow
+    compile 'com.github.yhaolpz:FloatWindow:1.0.9'
+
+//ToastsFancy,一个库通过各种样式选项将标准Android吐司提升到新的水平（能根据不同状态显示对应的吐司风格）--> https://github.com/Shashank02051997/FancyToast-Android
+    compile 'com.github.Shashank02051997:FancyToast-Android:0.1.3'
+
+//Matisse 当前最Fashion的图片选择器 --> 详细使用要仔细阅读文档接入流程 https://github.com/zhihu/Matisse    https://www.jianshu.com/p/5ba40cf378c2
+
+
+
+
+
+
+
+
+
+
+
+//通过命令来排查编译报错信息 技巧：
+    gradlew 报错名称 --stacktrace
+如：gradlew compileDebugKotlin --stacktrace

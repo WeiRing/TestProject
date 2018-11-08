@@ -27,7 +27,7 @@ import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 
-import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
+
 
 
 /**
@@ -37,6 +37,7 @@ import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
  *
  */
 public class RxCountDownFragment extends RxFragmentV4 {
+    private String TAG = "RxTag";
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
@@ -193,6 +194,7 @@ public class RxCountDownFragment extends RxFragmentV4 {
     public void initCountDown2(){
         //它在指定延迟0s之后先发射一个值2，然后再按照指定的时间间隔发射递增的数字，每隔1000毫秒发送一条数据
         mObservable = Observable.intervalRange(2, COUNT, 0, 1, TimeUnit.SECONDS)
+                .compose(this.<Long>bindToLifecycle())//退出时解除，防止内存泄露...
                 .map(new Function<Long, Object>() {
                     @Override
                     public Object apply(Long aLong) throws Exception {

@@ -16,7 +16,7 @@ import com.linjiawei.mytestdemo.R;
 
 /** 自动实现两个父类的抽象方法、删掉子类的 onCreate() 方法，并通过 getContentView() 方法返回布局 activity_main 的 id **/
 
-public abstract class ToolbarBaseActivity extends AppCompatActivity {
+public abstract class ToolbarBaseActivity extends BaseBGASwipeBackActivity {
     FrameLayout frameContentLayout;
     Toolbar toolbar;
     TextView titleView;
@@ -157,7 +157,6 @@ public abstract class ToolbarBaseActivity extends AppCompatActivity {
     }
 
     /**
-     * 启动activity，顺带标题过来
      * @param startClass
      * @param desClass
      */

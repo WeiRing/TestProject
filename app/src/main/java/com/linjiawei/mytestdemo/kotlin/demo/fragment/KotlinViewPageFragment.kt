@@ -16,11 +16,13 @@ import kotlinx.android.synthetic.main.fragment_kotlin_view_page.*
 class KotlinViewPageFragment : RxFragmentV4() {
     var tabTitle: ArrayList<String> = arrayListOf("段子","鸡汤")
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    //override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? { //过时的写法
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater!!.inflate(R.layout.fragment_kotlin_view_page, container, false)
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    //override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {//过时的写法
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         ktViewPage.offscreenPageLimit = tabTitle.size
         ktViewPage.adapter = TextPageAdapter()

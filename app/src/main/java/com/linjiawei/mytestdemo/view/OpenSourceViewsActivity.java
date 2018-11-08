@@ -54,6 +54,9 @@ public class OpenSourceViewsActivity extends ToolbarBaseActivity {
     private void addItem() {
         dataList.add("带圆角的RadioGroup组件");
         dataList.add("广告栏BGABanner控件");
+        dataList.add("StatusBarUtil-实现沉浸式状态栏/变色状态栏工具");
+        dataList.add("Glide工具二次封装");
+        dataList.add("支持RxJava2、灵活可高度定制的Android图片选择架构");
     }
 
 

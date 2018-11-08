@@ -21,7 +21,7 @@ import io.reactivex.subjects.BehaviorSubject;
  * Created by LinJiawei on 2018/4/9. 18:08
  * mail:911926881@qq.com
  *
- * 自定义此Fragment 继续的fragment是V4下的，兼容更多特性
+ * 自定义此Fragment 继承的fragment是V4下的，兼容更多特性
  *
  */
 

@@ -54,5 +54,40 @@
     <string name="permission_sd">申请外部SD卡权限</string>
     <string name="permission_call_phone">申请打电话等多个权限</string>
 
+    <!-- Rx相关 -->
+    <string name="rx_create">create</string>
+    <string name="rx_just">just</string>
+    <string name="rx_map">map</string>
+    <string name="rx_zip">zip</string>
+    <string name="rx_flatMap">flatMap</string>
+    <string name="rx_switchMap">switchMap</string>
+    <string name="rx_concatMap">concatMap</string>
+    <string name="rx_filter">filter</string>
+    <string name="rx_take">take</string>
+    <string name="rx_doOnNext">doOnNext</string>
+    <string name="rx_timer">timer</string>
+    <string name="rx_interval">interval</string>
+    <string name="rx_single">single</string>
+    <string name="rx_skip">skip</string>
+    <string name="rx_concat">concat</string>
+    <string name="rx_distinct">distinct</string>
+    <string name="rx_buffer">buffer</string>
+    <string name="rx_debounce">debounce</string>
+    <string name="rx_defer">defer</string>
+    <string name="rx_last">last</string>
+    <string name="rx_merge">merge</string>
+    <string name="rx_reduce">reduce</string>
+    <string name="rx_scan">scan</string>
+    <string name="rx_window">window</string>
+    <string name="rx_PublishSubject">PublishSubject</string>
+    <string name="rx_AsyncSubject">AsyncSubject</string>
+    <string name="rx_BehaviorSubject">BehaviorSubject</string>
+    <string name="rx_Completable">Completable</string>
+    <string name="rx_Flowable">Flowable</string>
+    <!-- Rx相关 -->
+
+    <string name="statusBarColor">状态栏颜色更改</string>
+    <string name="title_activity_matisse_select_image">MatisseSelectImageActivity</string>
+    <string name="title_activity_google_analytics">GoogleAnalyticsActivity</string>
 
 </resources>

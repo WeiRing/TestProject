@@ -61,6 +61,7 @@ public class RxAndroidActivity extends ToolbarBaseActivity {
     }
 
     private void addItem() {
+        dataList.add("RxAndroid相关的功能点练习");
         dataList.add("网络请求：RxJava + OkHttp");
         dataList.add("网络请求：RxJava + OkHttp + GSON");
         dataList.add("防止View被连续点击");
@@ -75,7 +76,7 @@ public class RxAndroidActivity extends ToolbarBaseActivity {
         dataList.add("RxBus");
         dataList.add("复用订阅者");
         dataList.add("倒计时");
-        dataList.add("RxAndroid相关的功能点练习");
+
     }
 
 

@@ -30,6 +30,8 @@ import java.util.Map;
 
 /**
  * 出现闪退异常时，将异常信息保存到本地文件中...
+ * <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+ * Application中先初始化 : SaveCrashExceptionHandler.getInstance().init(this);
  */
 public class SaveCrashExceptionHandler implements Thread.UncaughtExceptionHandler {
 

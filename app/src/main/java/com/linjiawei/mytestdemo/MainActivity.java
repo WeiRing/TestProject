@@ -6,23 +6,33 @@ import android.os.Handler;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.view.animation.BounceInterpolator;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.linjiawei.mytestdemo.arouter.ARouterActivity;
 import com.linjiawei.mytestdemo.base.ToolbarBaseActivity;
+import com.linjiawei.mytestdemo.googleanalytics.GoogleAnalyticsActivity;
 import com.linjiawei.mytestdemo.greendao.GreenDaoActivity;
 import com.linjiawei.mytestdemo.guide.NewbieGuideActivity;
 import com.linjiawei.mytestdemo.imagegallery.GalleryFinalActivity;
+import com.linjiawei.mytestdemo.imagegallery.MatisseSelectImageActivity;
 import com.linjiawei.mytestdemo.kotlin.KotlinActivity;
 import com.linjiawei.mytestdemo.nicedialog.NiceDialogActivity;
 import com.linjiawei.mytestdemo.rxandroid.RxAndroidActivity;
+import com.linjiawei.mytestdemo.rxandroid.fastnetworking.FastNetworkingTestActivity;
 import com.linjiawei.mytestdemo.rxpermissions.RxPermissionsActivity;
 import com.linjiawei.mytestdemo.view.OpenSourceViewsActivity;
 import com.linjiawei.mytestdemo.web.AgentWebActivity;
+import com.shashank.sony.fancytoastlib.FancyToast;
 import com.srx.widget.PullCallback;
 import com.srx.widget.PullToLoadView;
+import com.yhao.floatwindow.FloatWindow;
+import com.yhao.floatwindow.MoveType;
+import com.yhao.floatwindow.Screen;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +60,7 @@ public class MainActivity extends ToolbarBaseActivity implements PullCallback {
             }
         });
         initMyViews();
+        initFloatWindow();
     }
 
     //重写此方法，可以将默认显示的左上角的返回按钮隐藏掉
@@ -126,6 +137,10 @@ public class MainActivity extends ToolbarBaseActivity implements PullCallback {
             activityList.add(new ActivityParameter(7, "GalleryFinal", GalleryFinalActivity.class));
             activityList.add(new ActivityParameter(8, "Kotlin", KotlinActivity.class));
             activityList.add(new ActivityParameter(9, "ARouter", ARouterActivity.class));
+            activityList.add(new ActivityParameter(10, "Android Fast Networking", FastNetworkingTestActivity.class));
+            activityList.add(new ActivityParameter(11, "MatisseSelectImage", MatisseSelectImageActivity.class));
+            activityList.add(new ActivityParameter(12, "Google Analytics", GoogleAnalyticsActivity.class));
+
         }
     }
 
@@ -161,20 +176,6 @@ public class MainActivity extends ToolbarBaseActivity implements PullCallback {
             }
         }, 1500);
     }
-
-    /**
-     * 启动activity
-     * @param activityTitleName
-     * @param desClass
-     */
-//    private void openNewActivity(String activityTitleName , Class<? extends AppCompatActivity> desClass){
-//        Bundle bundle = new Bundle();
-//        bundle.putString(ACTIVITY_TITLE_NAME, activityTitleName);
-//        ActivityUtils.startActivity(bundle, MainActivity.this, desClass);
-
-//        openNewActivity(activityTitleName,MainActivity.this,desClass);
-//    }
-
 
     /***********发下四个方法是PullCallback接口所实现的方法*******/
     @Override
@@ -215,5 +216,41 @@ public class MainActivity extends ToolbarBaseActivity implements PullCallback {
             //4.点击的时间差小于2000，调用父类onBackPressed方法执行退出。
             super.onBackPressed();
         }
+    }
+
+    /**
+     * 定义任意控件悬浮在界面上
+     */
+    private void initFloatWindow(){
+        ImageView imageView = new ImageView(getApplicationContext());
+        imageView.setImageResource(R.drawable.ic_camera);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //各种样式选项将标准Android吐司提升到新的水平（能根据不同状态显示对应的吐司风格）
+                FancyToast.makeText(MyApplication.getContext(), "Successful", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, false ).show();
+            }
+        });
+        FloatWindow
+                .with(MyApplication.getContext())
+                .setView(imageView)
+                .setWidth(Screen.width, 0.15f) //设置悬浮控件宽高
+                .setHeight(Screen.width, 0.15f)
+                .setX(Screen.width, 0.8f)//设置控件初始位置
+                .setY(Screen.height, 0.3f)
+                .setMoveType(MoveType.slide, 100, -100)
+                .setMoveStyle(500, new BounceInterpolator())
+                .setFilter(true, MainActivity.class, RxAndroidActivity.class)//ture 表示只有声明的两个Activity显示悬浮控件
+                /*.setViewStateListener(mViewStateListener)
+                .setPermissionListener(mPermissionListener)*/
+                .setDesktopShow(true)//桌面显示
+                .setMoveType(MoveType.active)//可拖动，释放后会自动贴边 （默认）
+                .build();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        FloatWindow.destroy();//退出app的时候销毁，不然返回桌面还会显示...
     }
 }

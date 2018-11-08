@@ -1,0 +1,7 @@
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <files-path name="name1" path="test1" />
+    <cache-path name="name2" path="test2" />
+    <external-path name="name3" path="test3" />
+    <external-files-path name="name4" path="test4" />
+    <external-cache-path name="name5" path="test5" />
+</paths>

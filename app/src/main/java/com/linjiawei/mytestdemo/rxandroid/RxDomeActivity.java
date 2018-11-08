@@ -35,37 +35,38 @@ public class RxDomeActivity extends ToolbarBaseActivity implements OnFragmentInt
     private void addFragmentType(int type){
         switch (type) {
             case 0:
-                FragmentUtils.addFragment(getSupportFragmentManager(), RxNetwrokRequest.newInstance("", ""), R.id.rxFragmentContent);
+                //所有RxAndroid相关功能点测试
+                FragmentUtils.addFragment(getSupportFragmentManager(), RxFunctionHomeFragments.newInstance("", ""), R.id.rxFragmentContent);
                 break;
             case 1:
-
+                FragmentUtils.addFragment(getSupportFragmentManager(), RxNetwrokRequest.newInstance("", ""), R.id.rxFragmentContent);
                 break;
             case 2:
-                FragmentUtils.addFragment(getSupportFragmentManager(), RxBtnNotMoreClickFragment.newInstance("", ""), R.id.rxFragmentContent);
+
                 break;
             case 3:
-                FragmentUtils.addFragment(getSupportFragmentManager(), RxCheckBoxUpdateFragment.newInstance("", ""), R.id.rxFragmentContent);
+                FragmentUtils.addFragment(getSupportFragmentManager(), RxBtnNotMoreClickFragment.newInstance("", ""), R.id.rxFragmentContent);
                 break;
             case 4:
-
+                FragmentUtils.addFragment(getSupportFragmentManager(), RxCheckBoxUpdateFragment.newInstance("", ""), R.id.rxFragmentContent);
                 break;
             case 5:
-                FragmentUtils.addFragment(getSupportFragmentManager(), RxBufferFragment.newInstance("", ""), R.id.rxFragmentContent);
+
                 break;
             case 6:
-                FragmentUtils.addFragment(getSupportFragmentManager(), RxZipFragment.newInstance("", ""), R.id.rxFragmentContent);
+                FragmentUtils.addFragment(getSupportFragmentManager(), RxBufferFragment.newInstance("", ""), R.id.rxFragmentContent);
                 break;
             case 7:
-                FragmentUtils.addFragment(getSupportFragmentManager(), RxConcatFragment.newInstance("", ""), R.id.rxFragmentContent);
+                FragmentUtils.addFragment(getSupportFragmentManager(), RxZipFragment.newInstance("", ""), R.id.rxFragmentContent);
                 break;
             case 8:
-                FragmentUtils.addFragment(getSupportFragmentManager(), RxLoopFragment.newInstance("", ""), R.id.rxFragmentContent);
+                FragmentUtils.addFragment(getSupportFragmentManager(), RxConcatFragment.newInstance("", ""), R.id.rxFragmentContent);
                 break;
             case 9:
-                FragmentUtils.addFragment(getSupportFragmentManager(), RxTimerFragment.newInstance("", ""), R.id.rxFragmentContent);
+                FragmentUtils.addFragment(getSupportFragmentManager(), RxLoopFragment.newInstance("", ""), R.id.rxFragmentContent);
                 break;
             case 10:
-
+                FragmentUtils.addFragment(getSupportFragmentManager(), RxTimerFragment.newInstance("", ""), R.id.rxFragmentContent);
                 break;
             case 11:
 
@@ -74,11 +75,13 @@ public class RxDomeActivity extends ToolbarBaseActivity implements OnFragmentInt
 
                 break;
             case 13:
-                FragmentUtils.addFragment(getSupportFragmentManager(), RxCountDownFragment.newInstance("", ""), R.id.rxFragmentContent);
+
                 break;
             case 14:
-                //所有RxAndroid相关功能点测试
-                FragmentUtils.addFragment(getSupportFragmentManager(), RxFunctionHomeFragments.newInstance("", ""), R.id.rxFragmentContent);
+                FragmentUtils.addFragment(getSupportFragmentManager(), RxCountDownFragment.newInstance("", ""), R.id.rxFragmentContent);
+                break;
+            case 15:
+
                 break;
         }
     }

@@ -11,11 +11,11 @@ import kotlinx.android.synthetic.main.fragment_kotlin_view_page_fragment_child_o
 
 class KotlinViewPageFragmentChildOne : RxFragmentV4() {
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater!!.inflate(R.layout.fragment_kotlin_view_page_fragment_child_one, container, false)
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
         initEvent()

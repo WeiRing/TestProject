@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.linjiawei.mytestdemo.R;
 import com.linjiawei.mytestdemo.base.RxFragmentV4;
 import com.linjiawei.mytestdemo.interfacebase.OnFragmentInteractionListener;
@@ -66,13 +67,21 @@ public class BGABannerFragment extends RxFragmentV4 {
         mBannerGuideContent.setAdapter(new BGABanner.Adapter<ImageView, String>() {
             @Override
             public void fillBannerItem(BGABanner banner, ImageView itemView, String model, int position) {
-                Glide.with(BGABannerFragment.this)
-                        .load(model)
+
+                RequestOptions options = new RequestOptions()
                         .placeholder(R.mipmap.ic_launcher)
                         .error(R.mipmap.ic_launcher)
-                        .centerCrop()
-                        .dontAnimate()
+                        .optionalCenterCrop()
+                        .dontAnimate();
+
+                Glide.with(BGABannerFragment.this)
+                        .load(model)
+                        .apply(options)
                         .into(itemView);
+
+
+
+
             }
         });
         mBannerGuideContent.setData(Arrays.asList("https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=134408327,235874462&fm=58&bpow=640&bpoh=480", "https://ss0.baidu.com/73F1bjeh1BF3odCf/it/u=2179909764,2895522491&fm=85&s=4CE6A74425FB2025781041140300C0C2", "https://ss0.baidu.com/73x1bjeh1BF3odCf/it/u=2033816434,820626626&fm=85&s=D23E3CC4D6D9912E31101C790300C050"), Arrays.asList("提示文字1", "提示文字2", "提示文字3"));

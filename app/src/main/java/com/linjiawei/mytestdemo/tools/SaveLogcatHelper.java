@@ -19,6 +19,11 @@ import java.util.Date;
 
 /**
  * 记录app中所有的LOG日志到本地文件中
+ *
+ *  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+ *  <uses-permission android:name="android.permission.READ_LOGS" />
+ *  初始化并开始记录（可在需要的地方再初始化）: SaveLogcatHelper.getInstance(this).start();
+ *  退出时某个页面时也可以关闭记录 : SaveLogcatHelper.getInstance(this).stop();
  */
 public class SaveLogcatHelper {
 
